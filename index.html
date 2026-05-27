@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Speed dating CEIDEF — Possibilités de collaboration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.17.0/dist/tabler-icons.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F5F2EC;
+      --bg-card: #FFFFFF;
+      --bg-soft: #EDE8DE;
+      --bg-accent: #E8DFCE;
+      --ink: #1A1814;
+      --ink-soft: #5C574E;
+      --ink-faint: #948F84;
+      --border: #DDD6C7;
+      --border-soft: #E8E2D4;
+      --accent: #7A3E2F;
+      --accent-soft: #C8917E;
+      --accent-bg: #F0E0D6;
+      --success: #4A6B3A;
+      --success-bg: #E1EAD7;
+      --danger: #9B3C3C;
+      --serif: 'Fraunces', Georgia, serif;
+      --sans: 'Inter', -apple-system, sans-serif;
+      --radius: 10px;
+      --radius-lg: 16px;
+    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.5; }
+    body { min-height: 100vh; padding: 0 16px 80px; }
+    .container { max-width: 540px; margin: 0 auto; }
+
+    /* Header */
+    .topbar { display: flex; justify-content: space-between; align-items: center; padding: 16px 0 12px; margin-bottom: 8px; }
+    .brand { display: flex; align-items: baseline; gap: 8px; }
+    .brand-mark { font-family: var(--serif); font-weight: 500; font-size: 19px; letter-spacing: -0.01em; color: var(--accent); }
+    .brand-sub { font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.08em; }
+    .topbar-actions { display: flex; gap: 4px; }
+    .icon-btn { background: transparent; border: none; color: var(--ink-soft); padding: 8px; cursor: pointer; border-radius: 8px; font-size: 18px; }
+    .icon-btn:hover { background: var(--bg-soft); color: var(--ink); }
+
+    /* Cards & typography */
+    .card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 24px 20px; border: 1px solid var(--border-soft); }
+    .card-soft { background: var(--bg-soft); border-radius: var(--radius); padding: 16px; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 500; letter-spacing: -0.01em; margin: 0; color: var(--ink); }
+    h1 { font-size: 26px; line-height: 1.15; }
+    h2 { font-size: 20px; line-height: 1.2; }
+    h3 { font-size: 16px; line-height: 1.3; font-weight: 500; }
+    .lead { font-size: 14px; color: var(--ink-soft); margin: 6px 0 0; }
+    .muted { color: var(--ink-soft); font-size: 13px; }
+    .tiny { font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500; }
+
+    /* Forms */
+    label { display: block; font-size: 13px; color: var(--ink-soft); margin-bottom: 6px; font-weight: 500; }
+    input[type="text"], input[type="password"], textarea, select {
+      width: 100%; padding: 12px 14px; font-family: var(--sans); font-size: 15px;
+      background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+      color: var(--ink); transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    input:focus, textarea:focus, select:focus {
+      outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-bg);
+    }
+    textarea { resize: vertical; min-height: 70px; line-height: 1.5; }
+
+    /* Buttons */
+    button { font-family: var(--sans); font-size: 15px; cursor: pointer; transition: all 0.15s; }
+    .btn { padding: 14px 18px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--bg-card); color: var(--ink); font-weight: 500; display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; }
+    .btn:hover:not(:disabled) { background: var(--bg-soft); border-color: var(--ink-faint); }
+    .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .btn-primary { background: var(--accent); color: #FFF; border-color: var(--accent); }
+    .btn-primary:hover:not(:disabled) { background: #6A3526; border-color: #6A3526; }
+    .btn-ghost { background: transparent; border-color: transparent; color: var(--ink-soft); }
+    .btn-ghost:hover { background: var(--bg-soft); color: var(--ink); }
+    .btn-sm { padding: 8px 12px; font-size: 13px; width: auto; }
+    .btn-danger { color: var(--danger); }
+
+    /* Hero (accueil) */
+    .hero { text-align: center; padding: 28px 20px 24px; background: var(--bg-card); border-radius: var(--radius-lg); border: 1px solid var(--border-soft); margin-bottom: 16px; }
+    .hero-mark { width: 56px; height: 56px; margin: 0 auto 12px; border-radius: 50%; background: var(--accent-bg); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 26px; }
+    .hero-title { font-family: var(--serif); font-size: 28px; font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 4px; }
+    .hero-sub { font-size: 14px; color: var(--ink-soft); margin: 0 0 4px; }
+    .hero-year { font-size: 12px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+
+    /* Selector */
+    .selector { padding: 14px 16px; background: var(--bg-soft); border: 1px solid var(--border-soft); border-radius: var(--radius); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+    .selector:hover { border-color: var(--ink-faint); }
+    .selector-label { font-size: 15px; color: var(--ink); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .selector-label.empty { color: var(--ink-faint); }
+    .selector-arrow { color: var(--ink-faint); font-size: 16px; }
+    .swap-line { text-align: center; color: var(--ink-faint); margin: 8px 0; font-size: 16px; }
+
+    /* Picker modal */
+    .modal-backdrop { position: fixed; inset: 0; background: rgba(26, 24, 20, 0.4); backdrop-filter: blur(4px); z-index: 100; display: none; align-items: flex-end; justify-content: center; }
+    .modal-backdrop.open { display: flex; }
+    .modal { background: var(--bg); border-radius: var(--radius-lg) var(--radius-lg) 0 0; width: 100%; max-width: 540px; max-height: 80vh; display: flex; flex-direction: column; padding: 16px; }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+    .modal-title { font-family: var(--serif); font-size: 18px; font-weight: 500; }
+    .picker-list { overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 4px; padding: 4px 0; }
+    .picker-option { padding: 14px 16px; background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: var(--radius); cursor: pointer; font-size: 15px; display: flex; align-items: center; gap: 10px; transition: all 0.1s; }
+    .picker-option:active { background: var(--bg-soft); }
+    .picker-option.taken { opacity: 0.4; cursor: not-allowed; }
+    .picker-option.taken::after { content: 'déjà sélectionné'; font-size: 11px; color: var(--ink-faint); margin-left: auto; font-style: italic; }
+
+    /* Collaboration rows */
+    .collab-section { margin-top: 4px; }
+    .collab-header { display: grid; grid-template-columns: 1fr 60px 60px; gap: 8px; padding: 0 14px 6px; align-items: end; }
+    .collab-header-year { text-align: center; font-size: 11px; font-weight: 500; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; }
+    .collab-row { display: grid; grid-template-columns: 1fr 60px 60px; gap: 8px; align-items: center; padding: 12px 14px; background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: var(--radius); margin-bottom: 6px; transition: all 0.15s; }
+    .collab-row.checked { background: var(--accent-bg); border-color: var(--accent-soft); }
+    .collab-label { display: flex; align-items: center; gap: 12px; cursor: pointer; user-select: none; min-width: 0; }
+    .collab-icon { color: var(--ink-soft); font-size: 18px; flex-shrink: 0; }
+    .collab-row.checked .collab-icon { color: var(--accent); }
+    .collab-text { font-size: 14px; line-height: 1.3; flex: 1; min-width: 0; }
+    .collab-row.checked .collab-text { color: var(--accent); font-weight: 500; }
+
+    /* Checkboxes */
+    .check { position: relative; width: 22px; height: 22px; flex-shrink: 0; cursor: pointer; }
+    .check input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+    .check-box { width: 22px; height: 22px; border: 1.5px solid var(--border); border-radius: 6px; background: var(--bg-card); display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+    .check input:checked + .check-box { background: var(--accent); border-color: var(--accent); }
+    .check input:checked + .check-box::after { content: ''; width: 5px; height: 9px; border: solid #FFF; border-width: 0 2px 2px 0; transform: rotate(45deg) translateY(-1px); }
+    .check input:disabled + .check-box { opacity: 0.3; cursor: not-allowed; background: var(--bg-soft); }
+    .date-cell { display: flex; justify-content: center; }
+
+    /* Counter */
+    .counter { text-align: center; padding: 10px; color: var(--ink-soft); font-size: 13px; margin-top: 12px; }
+    .counter.active { color: var(--accent); font-weight: 500; }
+
+    /* Confirmation */
+    .confirm-check { width: 72px; height: 72px; border-radius: 50%; background: var(--success-bg); color: var(--success); display: flex; align-items: center; justify-content: center; font-size: 36px; margin: 0 auto 16px; }
+    .confirm-pair { padding: 14px 16px; background: var(--bg-soft); border-radius: var(--radius); margin: 16px 0; text-align: left; }
+    .pair-names { font-weight: 500; font-size: 15px; margin: 0 0 8px; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { background: var(--bg-card); border: 1px solid var(--border-soft); font-size: 12px; padding: 4px 10px; border-radius: 20px; color: var(--ink-soft); display: inline-flex; align-items: center; gap: 4px; }
+    .tag-year { font-size: 10px; color: var(--accent); font-weight: 500; margin-left: 4px; }
+
+    /* Meetings list */
+    .meeting-item { padding: 14px 16px; background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: var(--radius); margin-bottom: 8px; cursor: pointer; transition: all 0.15s; }
+    .meeting-item:hover { border-color: var(--accent-soft); }
+    .meeting-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; gap: 8px; }
+    .meeting-names { font-weight: 500; font-size: 14px; }
+    .meeting-count { font-size: 11px; color: var(--accent); background: var(--accent-bg); padding: 3px 8px; border-radius: 10px; flex-shrink: 0; }
+    .empty-state { text-align: center; padding: 32px 16px; color: var(--ink-faint); font-size: 14px; }
+
+    /* Dashboard */
+    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
+    .stat { background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: var(--radius); padding: 14px; }
+    .stat-label { font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 4px; }
+    .stat-value { font-family: var(--serif); font-size: 28px; font-weight: 500; margin: 0; line-height: 1; }
+    .bar-row { display: grid; grid-template-columns: minmax(0, 160px) 1fr 32px; gap: 10px; align-items: center; margin-bottom: 8px; font-size: 13px; }
+    .bar-label { color: var(--ink-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .bar-track { height: 12px; background: var(--bg-soft); border-radius: 6px; overflow: hidden; }
+    .bar-fill { height: 100%; background: var(--accent-soft); border-radius: 6px; }
+    .bar-val { text-align: right; font-weight: 500; font-size: 13px; }
+
+    /* Admin */
+    .participant-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: var(--radius); margin-bottom: 6px; font-size: 14px; gap: 8px; }
+    .add-row { display: flex; gap: 6px; margin-bottom: 12px; }
+    .add-row input { flex: 1; }
+    .add-row button { flex-shrink: 0; }
+
+    /* Section spacing */
+    .section { margin-bottom: 20px; }
+    .section-title { font-family: var(--serif); font-size: 17px; font-weight: 500; margin: 0 0 4px; }
+    .section-sub { font-size: 13px; color: var(--ink-soft); margin: 0 0 12px; }
+
+    /* Toast */
+    .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--bg); padding: 12px 20px; border-radius: 24px; font-size: 14px; z-index: 200; opacity: 0; transition: opacity 0.2s; pointer-events: none; }
+    .toast.show { opacity: 1; }
+    .toast.error { background: var(--danger); }
+
+    /* Status indicator */
+    .status { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--ink-faint); }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-faint); }
+    .status-dot.online { background: var(--success); }
+    .status-dot.offline { background: var(--danger); }
+
+    /* Views */
+    .view { display: none; animation: fadeIn 0.2s ease-out; }
+    .view.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Hide on small */
+    @media (max-width: 380px) {
+      .collab-header { grid-template-columns: 1fr 52px 52px; }
+      .collab-row { grid-template-columns: 1fr 52px 52px; padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Top bar -->
+    <div class="topbar">
+      <div class="brand">
+        <span class="brand-mark">CEIDEF</span>
+        <span class="brand-sub">collaborations</span>
+      </div>
+      <div class="topbar-actions">
+        <span class="status" id="status">
+          <span class="status-dot" id="status-dot"></span>
+          <span id="status-text">connexion...</span>
+        </span>
+        <button class="icon-btn" onclick="showView('dashboard')" aria-label="Tableau de bord" title="Tableau de bord"><i class="ti ti-chart-pie"></i></button>
+        <button class="icon-btn" onclick="showView('admin')" aria-label="Administration" title="Administration"><i class="ti ti-settings"></i></button>
+      </div>
+    </div>
+
+    <!-- ===================== VIEW: HOME ===================== -->
+    <div class="view active" id="view-home">
+      <div class="hero">
+        <div class="hero-mark"><i class="ti ti-users"></i></div>
+        <h1 class="hero-title">Possibilités de collaboration</h1>
+        <p class="hero-sub">Identifiez les projets que vous pourriez mener ensemble</p>
+        <p class="hero-year">2026-2027 · 2027-2028</p>
+
+        <button class="btn btn-primary" onclick="startNewMeeting()">
+          <i class="ti ti-plus"></i> Nouvelle rencontre
+        </button>
+        <button class="btn" style="margin-top: 8px;" onclick="showMeetingsList()">
+          <i class="ti ti-list"></i> Voir les rencontres
+          <span id="home-count" class="muted" style="margin-left: 4px;"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ===================== VIEW: SELECT ===================== -->
+    <div class="view" id="view-select">
+      <div class="card">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+          <button class="icon-btn" onclick="showView('home')" aria-label="Retour"><i class="ti ti-arrow-left"></i></button>
+          <h2 style="flex: 1;">Nouvelle rencontre</h2>
+        </div>
+
+        <div class="section">
+          <p class="section-title">Qui s'est rencontré ?</p>
+          <p class="section-sub">Sélectionnez les deux participants</p>
+
+          <label>Personne 1</label>
+          <div class="selector" onclick="openPicker(1)">
+            <span class="selector-label empty" id="picker1-label">Sélectionner...</span>
+            <span class="selector-arrow"><i class="ti ti-chevron-down"></i></span>
+          </div>
+          <div class="swap-line"><i class="ti ti-arrows-up-down"></i></div>
+          <label>Personne 2</label>
+          <div class="selector" onclick="openPicker(2)">
+            <span class="selector-label empty" id="picker2-label">Sélectionner...</span>
+            <span class="selector-arrow"><i class="ti ti-chevron-down"></i></span>
+          </div>
+        </div>
+
+        <div class="section">
+          <p class="section-title">Que pourriez-vous faire ensemble ?</p>
+          <p class="section-sub">Cochez l'activité et indiquez la ou les périodes visées</p>
+
+          <div class="collab-header">
+            <span></span>
+            <span class="collab-header-year">26-27</span>
+            <span class="collab-header-year">27-28</span>
+          </div>
+
+          <div id="collab-list" class="collab-section"></div>
+
+          <input type="text" id="other-input" placeholder="Précisez votre idée" style="display: none; margin-top: 8px;">
+
+          <div style="margin-top: 16px;">
+            <label>Notes (optionnel)</label>
+            <textarea id="notes-input" placeholder="Ex: reprendre contact en septembre pour discuter du devis"></textarea>
+          </div>
+
+          <p class="counter" id="counter">Aucune collaboration sélectionnée</p>
+
+          <button class="btn btn-primary" id="submit-btn" onclick="submitMeeting()" disabled>
+            <i class="ti ti-check"></i> Enregistrer la rencontre
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== VIEW: CONFIRM ===================== -->
+    <div class="view" id="view-confirm">
+      <div class="card" style="text-align: center;">
+        <div class="confirm-check"><i class="ti ti-check"></i></div>
+        <h2>Rencontre enregistrée</h2>
+        <p class="lead" id="confirm-names" style="margin-bottom: 4px;"></p>
+
+        <div class="confirm-pair" id="confirm-summary"></div>
+
+        <button class="btn btn-primary" onclick="startNewMeeting()">
+          <i class="ti ti-plus"></i> Nouvelle rencontre
+        </button>
+        <button class="btn" style="margin-top: 8px;" onclick="showView('home')">
+          <i class="ti ti-home"></i> Retour à l'accueil
+        </button>
+      </div>
+    </div>
+
+    <!-- ===================== VIEW: MEETINGS LIST ===================== -->
+    <div class="view" id="view-meetings">
+      <div class="card">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+          <button class="icon-btn" onclick="showView('home')" aria-label="Retour"><i class="ti ti-arrow-left"></i></button>
+          <h2 style="flex: 1;">Rencontres</h2>
+          <span class="muted" id="meetings-total"></span>
+        </div>
+        <p class="section-sub">Cliquez sur une rencontre pour la modifier</p>
+        <div id="meetings-list"></div>
+      </div>
+    </div>
+
+    <!-- ===================== VIEW: DASHBOARD ===================== -->
+    <div class="view" id="view-dashboard">
+      <div class="card">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+          <button class="icon-btn" onclick="showView('home')" aria-label="Retour"><i class="ti ti-arrow-left"></i></button>
+          <h2 style="flex: 1;">Tableau de bord</h2>
+          <button class="icon-btn" onclick="loadDashboard()" aria-label="Actualiser" title="Actualiser"><i class="ti ti-refresh"></i></button>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat">
+            <p class="stat-label">Rencontres</p>
+            <p class="stat-value" id="stat-meetings">—</p>
+          </div>
+          <div class="stat">
+            <p class="stat-label">Collaborations</p>
+            <p class="stat-value" id="stat-collabs">—</p>
+          </div>
+          <div class="stat">
+            <p class="stat-label">Chercheurs actifs</p>
+            <p class="stat-value" id="stat-researchers">—</p>
+          </div>
+          <div class="stat">
+            <p class="stat-label">Type populaire</p>
+            <p class="stat-value" id="stat-top" style="font-size: 14px; font-family: var(--sans); font-weight: 500; line-height: 1.3;">—</p>
+          </div>
+        </div>
+
+        <div class="section">
+          <p class="section-title">Distribution par activité</p>
+          <div id="distribution-chart" style="margin-top: 12px;"></div>
+        </div>
+
+        <div class="section">
+          <p class="section-title">Distribution par période</p>
+          <div id="year-chart" style="margin-top: 12px;"></div>
+        </div>
+
+        <div style="display: flex; gap: 8px; margin-top: 16px;">
+          <button class="btn" onclick="exportCSV()"><i class="ti ti-download"></i> Exporter CSV</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== VIEW: ADMIN ===================== -->
+    <div class="view" id="view-admin">
+      <div class="card">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+          <button class="icon-btn" onclick="showView('home')" aria-label="Retour"><i class="ti ti-arrow-left"></i></button>
+          <h2 style="flex: 1;">Administration</h2>
+        </div>
+
+        <div class="section">
+          <p class="section-title">Participants</p>
+          <p class="section-sub" id="admin-count">— inscrits</p>
+
+          <div class="add-row">
+            <input type="text" id="new-participant" placeholder="Nom du chercheur" onkeydown="if(event.key==='Enter') addParticipant()">
+            <button class="btn btn-sm" onclick="addParticipant()"><i class="ti ti-plus"></i></button>
+          </div>
+
+          <div id="participants-list"></div>
+        </div>
+
+        <div class="section">
+          <p class="section-title">Données</p>
+          <button class="btn" onclick="exportCSV()" style="margin-bottom: 8px;"><i class="ti ti-download"></i> Exporter les rencontres (CSV)</button>
+          <button class="btn btn-ghost btn-danger" onclick="confirmReset()"><i class="ti ti-trash"></i> Réinitialiser toutes les rencontres</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Picker modal -->
+  <div class="modal-backdrop" id="picker-modal" onclick="if(event.target===this) closePicker()">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title">Sélectionner un participant</span>
+        <button class="icon-btn" onclick="closePicker()" aria-label="Fermer"><i class="ti ti-x"></i></button>
+      </div>
+      <input type="text" id="picker-search" placeholder="Rechercher..." style="margin-bottom: 8px;">
+      <div class="picker-list" id="picker-list"></div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script type="module">
+    import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+    // ============================================================
+    // CONFIGURATION — REMPLACEZ CES VALEURS AVEC VOS CLÉS SUPABASE
+    // ============================================================
+    const SUPABASE_URL = 'https://wamngrzlxbczraqmsvbq.supabase.co';        // ex: https://abcdefgh.supabase.co
+    const SUPABASE_ANON_KEY = 'sb_publishable_efTAFtXqinU4rlw1rstErQ_S9gyJoyq';        // clé publique anon
+    const EVENT_ID = 'ceidef-2026';                    // identifiant de l'événement
+    // ============================================================
+
+    // Liste initiale des chercheurs (utilisée pour le premier remplissage)
+    const INITIAL_PARTICIPANTS = [
+      'Karine Dubois-Comtois',
+      'Patricia Germain',
+      'Nicolas Berthelot',
+      'Eve-Line Bussières',
+      'Jacinthe Dion',
+      'Erica Goupil',
+      'Julie Lefebvre',
+      'Roxanne Lemieux',
+      'Julie Marcotte',
+      'Marie-Josée Martel',
+      'Tristan Milot',
+      'Diane St-Laurent',
+      'Annie Stipanicic',
+      'Marie-Pier Vaillancourt-Morel'
+    ];
+
+    // Catégories de collaboration tirées du formulaire CEIDEF
+    const COLLAB_TYPES = [
+      { id: 'codir_rd',     icon: 'ti-school',           label: "Codirection d'activité de recherche dirigée" },
+      { id: 'codir_thesis', icon: 'ti-certificate',      label: 'Codirection de mémoire / thèse' },
+      { id: 'comite',       icon: 'ti-users-group',      label: 'Comité de thèse' },
+      { id: 'postdoc',      icon: 'ti-microscope',       label: 'Stage postdoctoral' },
+      { id: 'projet',       icon: 'ti-flask',            label: 'Projet de recherche' },
+      { id: 'redaction',    icon: 'ti-file-text',        label: 'Rédaction (article, livre, rapport)' },
+      { id: 'formation',    icon: 'ti-chalkboard',       label: 'Formation' },
+      { id: 'transfert',    icon: 'ti-book',             label: 'Transfert de connaissance' },
+      { id: 'other',        icon: 'ti-plus',             label: 'Autre' }
+    ];
+
+    const YEARS = ['26-27', '27-28'];
+
+    // ============================================================
+    // STATE
+    // ============================================================
+    let supabase = null;
+    let online = false;
+    let participants = [];
+    let meetings = [];
+    let currentPicker = null;
+    let selected = { 1: null, 2: null };
+    let editingMeetingId = null;
+
+    // ============================================================
+    // SUPABASE INIT
+    // ============================================================
+    function initSupabase() {
+      if (SUPABASE_URL === 'VOTRE_URL_SUPABASE' || !SUPABASE_URL.startsWith('https://')) {
+        console.warn('Supabase non configuré — mode local uniquement');
+        setStatus(false, 'mode local');
+        return false;
+      }
+      try {
+        supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        setStatus(true, 'connecté');
+        return true;
+      } catch (e) {
+        console.error('Erreur Supabase:', e);
+        setStatus(false, 'hors ligne');
+        return false;
+      }
+    }
+
+    function setStatus(isOnline, text) {
+      online = isOnline;
+      const dot = document.getElementById('status-dot');
+      const txt = document.getElementById('status-text');
+      dot.className = 'status-dot ' + (isOnline ? 'online' : 'offline');
+      txt.textContent = text;
+    }
+
+    // ============================================================
+    // DATA OPERATIONS
+    // ============================================================
+    async function loadParticipants() {
+      if (online) {
+        const { data, error } = await supabase
+          .from('participants')
+          .select('*')
+          .eq('event_id', EVENT_ID)
+          .order('name');
+        if (!error && data) {
+          participants = data.map(p => p.name);
+          localStorage.setItem('ceidef_participants', JSON.stringify(participants));
+          return;
+        }
+      }
+      // Fallback local
+      const stored = localStorage.getItem('ceidef_participants');
+      if (stored) {
+        participants = JSON.parse(stored);
+      } else {
+        participants = [...INITIAL_PARTICIPANTS];
+        localStorage.setItem('ceidef_participants', JSON.stringify(participants));
+        if (online) await seedParticipants();
+      }
+    }
+
+    async function seedParticipants() {
+      if (!online) return;
+      const rows = INITIAL_PARTICIPANTS.map(name => ({ event_id: EVENT_ID, name }));
+      await supabase.from('participants').insert(rows);
+    }
+
+    async function addParticipant() {
+      const input = document.getElementById('new-participant');
+      const name = input.value.trim();
+      if (!name) return;
+      if (participants.includes(name)) {
+        toast('Ce nom existe déjà', true);
+        return;
+      }
+      participants.push(name);
+      participants.sort((a, b) => a.localeCompare(b, 'fr'));
+      localStorage.setItem('ceidef_participants', JSON.stringify(participants));
+      if (online) {
+        await supabase.from('participants').insert({ event_id: EVENT_ID, name });
+      }
+      input.value = '';
+      renderParticipantsList();
+      toast('Participant ajouté');
+    }
+
+    async function removeParticipant(name) {
+      if (!confirm(`Retirer ${name} de la liste ?`)) return;
+      participants = participants.filter(p => p !== name);
+      localStorage.setItem('ceidef_participants', JSON.stringify(participants));
+      if (online) {
+        await supabase.from('participants').delete().eq('event_id', EVENT_ID).eq('name', name);
+      }
+      renderParticipantsList();
+      toast('Participant retiré');
+    }
+
+    async function loadMeetings() {
+      if (online) {
+        const { data, error } = await supabase
+          .from('meetings')
+          .select('*')
+          .eq('event_id', EVENT_ID)
+          .order('created_at', { ascending: false });
+        if (!error && data) {
+          meetings = data;
+          localStorage.setItem('ceidef_meetings', JSON.stringify(meetings));
+          return;
+        }
+      }
+      const stored = localStorage.getItem('ceidef_meetings');
+      meetings = stored ? JSON.parse(stored) : [];
+    }
+
+    function normalizePair(a, b) {
+      return [a, b].sort((x, y) => x.localeCompare(y, 'fr'));
+    }
+
+    async function saveMeeting(meeting) {
+      // Mise à jour locale immédiate
+      const existingIdx = meetings.findIndex(m => m.id === meeting.id);
+      if (existingIdx >= 0) meetings[existingIdx] = meeting;
+      else meetings.unshift(meeting);
+      localStorage.setItem('ceidef_meetings', JSON.stringify(meetings));
+
+      if (online) {
+        const { error } = await supabase
+          .from('meetings')
+          .upsert(meeting, { onConflict: 'id' });
+        if (error) {
+          console.error('Erreur sauvegarde:', error);
+          toast('Sauvegardé localement (problème serveur)', true);
+          return false;
+        }
+      }
+      return true;
+    }
+
+    async function deleteMeeting(id) {
+      meetings = meetings.filter(m => m.id !== id);
+      localStorage.setItem('ceidef_meetings', JSON.stringify(meetings));
+      if (online) {
+        await supabase.from('meetings').delete().eq('id', id);
+      }
+    }
+
+    function findExistingMeeting(p1, p2) {
+      const [a, b] = normalizePair(p1, p2);
+      return meetings.find(m => m.person_a === a && m.person_b === b);
+    }
+
+    // ============================================================
+    // VIEW MANAGEMENT
+    // ============================================================
+    function showView(name) {
+      document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+      document.getElementById('view-' + name).classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (name === 'dashboard') loadDashboard();
+      if (name === 'admin') renderParticipantsList();
+      if (name === 'meetings') renderMeetingsList();
+      if (name === 'home') updateHomeCount();
+    }
+    window.showView = showView;
+
+    function startNewMeeting() {
+      editingMeetingId = null;
+      selected = { 1: null, 2: null };
+      document.getElementById('picker1-label').textContent = 'Sélectionner...';
+      document.getElementById('picker1-label').classList.add('empty');
+      document.getElementById('picker2-label').textContent = 'Sélectionner...';
+      document.getElementById('picker2-label').classList.add('empty');
+      document.querySelectorAll('#collab-list input[type="checkbox"]').forEach(cb => cb.checked = false);
+      document.querySelectorAll('.collab-row').forEach(r => r.classList.remove('checked'));
+      document.querySelectorAll('.date-cell input').forEach(cb => cb.disabled = true);
+      document.getElementById('notes-input').value = '';
+      document.getElementById('other-input').value = '';
+      document.getElementById('other-input').style.display = 'none';
+      updateCounter();
+      showView('select');
+    }
+    window.startNewMeeting = startNewMeeting;
+
+    function showMeetingsList() {
+      showView('meetings');
+    }
+    window.showMeetingsList = showMeetingsList;
+
+    // ============================================================
+    // PICKER
+    // ============================================================
+    function openPicker(num) {
+      currentPicker = num;
+      document.getElementById('picker-modal').classList.add('open');
+      document.getElementById('picker-search').value = '';
+      renderPickerOptions('');
+      setTimeout(() => document.getElementById('picker-search').focus(), 50);
+    }
+    window.openPicker = openPicker;
+
+    function closePicker() {
+      document.getElementById('picker-modal').classList.remove('open');
+      currentPicker = null;
+    }
+    window.closePicker = closePicker;
+
+    function renderPickerOptions(filter) {
+      const list = document.getElementById('picker-list');
+      const other = currentPicker === 1 ? selected[2] : selected[1];
+      const f = filter.toLowerCase();
+      const filtered = participants.filter(n => n.toLowerCase().includes(f));
+
+      if (filtered.length === 0) {
+        list.innerHTML = '<div class="empty-state">Aucun résultat</div>';
+        return;
+      }
+
+      list.innerHTML = filtered.map(name => {
+        const taken = name === other;
+        return `<div class="picker-option ${taken ? 'taken' : ''}" ${taken ? '' : `onclick="pickName('${name.replace(/'/g, "\\'")}')"`}>
+          <i class="ti ti-user" style="color: var(--ink-faint);"></i>
+          <span>${name}</span>
+        </div>`;
+      }).join('');
+    }
+
+    document.getElementById('picker-search').addEventListener('input', e => renderPickerOptions(e.target.value));
+
+    function pickName(name) {
+      selected[currentPicker] = name;
+      const label = document.getElementById('picker' + currentPicker + '-label');
+      label.textContent = name;
+      label.classList.remove('empty');
+      closePicker();
+      updateSubmitButton();
+    }
+    window.pickName = pickName;
+
+    // ============================================================
+    // COLLABORATION CHECKLIST
+    // ============================================================
+    function renderCollabList() {
+      const list = document.getElementById('collab-list');
+      list.innerHTML = COLLAB_TYPES.map(c => `
+        <div class="collab-row" id="row-${c.id}">
+          <label class="collab-label">
+            <span class="check">
+              <input type="checkbox" data-id="${c.id}" onchange="onCollabToggle('${c.id}')">
+              <span class="check-box"></span>
+            </span>
+            <i class="ti ${c.icon} collab-icon"></i>
+            <span class="collab-text">${c.label}</span>
+          </label>
+          <div class="date-cell">
+            <span class="check">
+              <input type="checkbox" data-id="${c.id}" data-year="26-27" disabled onchange="updateCounter()">
+              <span class="check-box"></span>
+            </span>
+          </div>
+          <div class="date-cell">
+            <span class="check">
+              <input type="checkbox" data-id="${c.id}" data-year="27-28" disabled onchange="updateCounter()">
+              <span class="check-box"></span>
+            </span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function onCollabToggle(id) {
+      const row = document.getElementById('row-' + id);
+      const mainCb = row.querySelector('.collab-label input');
+      const dateCbs = row.querySelectorAll('.date-cell input');
+
+      if (mainCb.checked) {
+        row.classList.add('checked');
+        dateCbs.forEach(cb => cb.disabled = false);
+      } else {
+        row.classList.remove('checked');
+        dateCbs.forEach(cb => { cb.disabled = true; cb.checked = false; });
+      }
+
+      if (id === 'other') {
+        document.getElementById('other-input').style.display = mainCb.checked ? 'block' : 'none';
+      }
+
+      updateCounter();
+    }
+    window.onCollabToggle = onCollabToggle;
+
+    function updateCounter() {
+      const checked = document.querySelectorAll('.collab-label input:checked').length;
+      const dates = document.querySelectorAll('.date-cell input:checked').length;
+      const counter = document.getElementById('counter');
+      if (checked === 0) {
+        counter.textContent = 'Aucune collaboration sélectionnée';
+        counter.classList.remove('active');
+      } else {
+        const c = checked === 1 ? '1 collaboration' : checked + ' collaborations';
+        const d = dates === 0 ? 'sans dates' : (dates === 1 ? '1 date indiquée' : dates + ' dates indiquées');
+        counter.textContent = c + ' · ' + d;
+        counter.classList.add('active');
+      }
+      updateSubmitButton();
+    }
+    window.updateCounter = updateCounter;
+
+    function updateSubmitButton() {
+      const btn = document.getElementById('submit-btn');
+      const hasPair = selected[1] && selected[2];
+      const hasCollab = document.querySelectorAll('.collab-label input:checked').length > 0;
+      btn.disabled = !(hasPair && hasCollab);
+    }
+
+    // ============================================================
+    // SUBMIT MEETING
+    // ============================================================
+    async function submitMeeting() {
+      const p1 = selected[1];
+      const p2 = selected[2];
+      if (!p1 || !p2) return;
+
+      const [a, b] = normalizePair(p1, p2);
+
+      // Vérifier doublon (sauf si on édite)
+      if (!editingMeetingId) {
+        const existing = findExistingMeeting(a, b);
+        if (existing) {
+          if (confirm(`Une rencontre existe déjà entre ${a} et ${b}. Voulez-vous la modifier ?`)) {
+            editMeeting(existing.id);
+            return;
+          } else {
+            return;
+          }
+        }
+      }
+
+      const collabs = [];
+      COLLAB_TYPES.forEach(c => {
+        const main = document.querySelector(`.collab-label input[data-id="${c.id}"]`);
+        if (!main.checked) return;
+        const years = [];
+        YEARS.forEach(y => {
+          const ycb = document.querySelector(`.date-cell input[data-id="${c.id}"][data-year="${y}"]`);
+          if (ycb && ycb.checked) years.push(y);
+        });
+        collabs.push({ id: c.id, years });
+      });
+
+      const otherText = document.getElementById('other-input').value.trim();
+      const notes = document.getElementById('notes-input').value.trim();
+
+      const meeting = {
+        id: editingMeetingId || crypto.randomUUID(),
+        event_id: EVENT_ID,
+        person_a: a,
+        person_b: b,
+        collaborations: collabs,
+        other_text: otherText || null,
+        notes: notes || null,
+        updated_at: new Date().toISOString()
+      };
+      if (!editingMeetingId) meeting.created_at = meeting.updated_at;
+
+      const ok = await saveMeeting(meeting);
+      if (ok) {
+        showConfirmation(meeting);
+      }
+    }
+    window.submitMeeting = submitMeeting;
+
+    function showConfirmation(meeting) {
+      document.getElementById('confirm-names').textContent = `${meeting.person_a} ↔ ${meeting.person_b}`;
+      const summary = document.getElementById('confirm-summary');
+      const tags = meeting.collaborations.map(c => {
+        const type = COLLAB_TYPES.find(t => t.id === c.id);
+        const label = type ? type.label : c.id;
+        const years = c.years && c.years.length ? ` <span class="tag-year">${c.years.join(' · ')}</span>` : '';
+        return `<span class="tag"><i class="ti ${type ? type.icon : 'ti-circle'}"></i>${label}${years}</span>`;
+      }).join('');
+      summary.innerHTML = `
+        <p class="tiny" style="margin: 0 0 8px;">${meeting.collaborations.length} collaboration(s) envisagée(s)</p>
+        <div class="tag-list">${tags}</div>
+        ${meeting.notes ? `<p class="muted" style="margin: 10px 0 0; font-style: italic;">"${meeting.notes}"</p>` : ''}
+      `;
+      showView('confirm');
+    }
+
+    // ============================================================
+    // EDIT MEETING
+    // ============================================================
+    function editMeeting(id) {
+      const m = meetings.find(x => x.id === id);
+      if (!m) return;
+      editingMeetingId = id;
+
+      selected[1] = m.person_a;
+      selected[2] = m.person_b;
+      document.getElementById('picker1-label').textContent = m.person_a;
+      document.getElementById('picker1-label').classList.remove('empty');
+      document.getElementById('picker2-label').textContent = m.person_b;
+      document.getElementById('picker2-label').classList.remove('empty');
+
+      // Reset puis remplir
+      document.querySelectorAll('#collab-list input[type="checkbox"]').forEach(cb => cb.checked = false);
+      document.querySelectorAll('.collab-row').forEach(r => r.classList.remove('checked'));
+      document.querySelectorAll('.date-cell input').forEach(cb => cb.disabled = true);
+
+      (m.collaborations || []).forEach(c => {
+        const main = document.querySelector(`.collab-label input[data-id="${c.id}"]`);
+        if (main) {
+          main.checked = true;
+          onCollabToggle(c.id);
+          (c.years || []).forEach(y => {
+            const ycb = document.querySelector(`.date-cell input[data-id="${c.id}"][data-year="${y}"]`);
+            if (ycb) ycb.checked = true;
+          });
+        }
+      });
+
+      document.getElementById('other-input').value = m.other_text || '';
+      document.getElementById('notes-input').value = m.notes || '';
+      if (m.other_text) document.getElementById('other-input').style.display = 'block';
+
+      updateCounter();
+      showView('select');
+    }
+    window.editMeeting = editMeeting;
+
+    // ============================================================
+    // MEETINGS LIST
+    // ============================================================
+    function renderMeetingsList() {
+      const list = document.getElementById('meetings-list');
+      document.getElementById('meetings-total').textContent = meetings.length + (meetings.length === 1 ? ' rencontre' : ' rencontres');
+
+      if (meetings.length === 0) {
+        list.innerHTML = '<div class="empty-state">Aucune rencontre enregistrée pour le moment</div>';
+        return;
+      }
+
+      list.innerHTML = meetings.map(m => {
+        const tags = (m.collaborations || []).slice(0, 4).map(c => {
+          const t = COLLAB_TYPES.find(x => x.id === c.id);
+          return `<span class="tag">${t ? t.label.split(' ').slice(0, 2).join(' ') : c.id}</span>`;
+        }).join('');
+        const more = (m.collaborations || []).length > 4 ? `<span class="tag">+${m.collaborations.length - 4}</span>` : '';
+        return `<div class="meeting-item" onclick="editMeeting('${m.id}')">
+          <div class="meeting-header">
+            <span class="meeting-names">${m.person_a} ↔ ${m.person_b}</span>
+            <span class="meeting-count">${(m.collaborations || []).length} collab.</span>
+          </div>
+          <div class="tag-list">${tags}${more}</div>
+        </div>`;
+      }).join('');
+    }
+
+    function updateHomeCount() {
+      const count = meetings.length;
+      const el = document.getElementById('home-count');
+      el.textContent = count > 0 ? `(${count})` : '';
+    }
+
+    // ============================================================
+    // DASHBOARD
+    // ============================================================
+    async function loadDashboard() {
+      await loadMeetings();
+      const totalMeetings = meetings.length;
+      const totalCollabs = meetings.reduce((sum, m) => sum + (m.collaborations || []).length, 0);
+      const researcherSet = new Set();
+      meetings.forEach(m => { researcherSet.add(m.person_a); researcherSet.add(m.person_b); });
+
+      // Distribution par type
+      const typeCount = {};
+      COLLAB_TYPES.forEach(t => typeCount[t.id] = 0);
+      meetings.forEach(m => (m.collaborations || []).forEach(c => { if (typeCount[c.id] != null) typeCount[c.id]++; }));
+      const sortedTypes = COLLAB_TYPES.map(t => ({ ...t, count: typeCount[t.id] })).sort((a, b) => b.count - a.count);
+      const topType = sortedTypes.find(t => t.count > 0);
+
+      // Distribution par année
+      const yearCount = { '26-27': 0, '27-28': 0 };
+      meetings.forEach(m => (m.collaborations || []).forEach(c => (c.years || []).forEach(y => { if (yearCount[y] != null) yearCount[y]++; })));
+
+      document.getElementById('stat-meetings').textContent = totalMeetings;
+      document.getElementById('stat-collabs').textContent = totalCollabs;
+      document.getElementById('stat-researchers').textContent = researcherSet.size;
+      document.getElementById('stat-top').textContent = topType ? topType.label : '—';
+
+      const maxType = Math.max(1, ...sortedTypes.map(t => t.count));
+      document.getElementById('distribution-chart').innerHTML = sortedTypes.filter(t => t.count > 0).map(t => `
+        <div class="bar-row">
+          <span class="bar-label">${t.label}</span>
+          <div class="bar-track"><div class="bar-fill" style="width: ${(t.count / maxType * 100).toFixed(0)}%"></div></div>
+          <span class="bar-val">${t.count}</span>
+        </div>
+      `).join('') || '<div class="empty-state">Aucune donnée</div>';
+
+      const maxYear = Math.max(1, yearCount['26-27'], yearCount['27-28']);
+      document.getElementById('year-chart').innerHTML = `
+        <div class="bar-row">
+          <span class="bar-label">2026-2027</span>
+          <div class="bar-track"><div class="bar-fill" style="width: ${(yearCount['26-27'] / maxYear * 100).toFixed(0)}%"></div></div>
+          <span class="bar-val">${yearCount['26-27']}</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">2027-2028</span>
+          <div class="bar-track"><div class="bar-fill" style="width: ${(yearCount['27-28'] / maxYear * 100).toFixed(0)}%"></div></div>
+          <span class="bar-val">${yearCount['27-28']}</span>
+        </div>
+      `;
+    }
+    window.loadDashboard = loadDashboard;
+
+    // ============================================================
+    // ADMIN
+    // ============================================================
+    function renderParticipantsList() {
+      const list = document.getElementById('participants-list');
+      document.getElementById('admin-count').textContent = participants.length + (participants.length === 1 ? ' chercheur inscrit' : ' chercheurs inscrits');
+
+      list.innerHTML = participants.map(name => `
+        <div class="participant-row">
+          <span>${name}</span>
+          <button class="btn btn-sm btn-ghost btn-danger" onclick="removeParticipant('${name.replace(/'/g, "\\'")}')" aria-label="Retirer">
+            <i class="ti ti-trash"></i>
+          </button>
+        </div>
+      `).join('');
+    }
+    window.addParticipant = addParticipant;
+    window.removeParticipant = removeParticipant;
+
+    // ============================================================
+    // EXPORT CSV
+    // ============================================================
+    function exportCSV() {
+      const rows = [['Personne A', 'Personne B', 'Activité', '2026-2027', '2027-2028', 'Autre (précision)', 'Notes', 'Date création']];
+      meetings.forEach(m => {
+        (m.collaborations || []).forEach(c => {
+          const type = COLLAB_TYPES.find(t => t.id === c.id);
+          const label = type ? type.label : c.id;
+          rows.push([
+            m.person_a,
+            m.person_b,
+            label,
+            (c.years || []).includes('26-27') ? 'X' : '',
+            (c.years || []).includes('27-28') ? 'X' : '',
+            c.id === 'other' ? (m.other_text || '') : '',
+            m.notes || '',
+            m.created_at || ''
+          ]);
+        });
+        if ((m.collaborations || []).length === 0) {
+          rows.push([m.person_a, m.person_b, '', '', '', '', m.notes || '', m.created_at || '']);
+        }
+      });
+
+      const csv = rows.map(r => r.map(cell => {
+        const s = String(cell || '');
+        return /[",\n;]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+      }).join(';')).join('\n');
+
+      const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `ceidef-collaborations-${new Date().toISOString().slice(0, 10)}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+      toast('Fichier CSV téléchargé');
+    }
+    window.exportCSV = exportCSV;
+
+    // ============================================================
+    // ADMIN: RESET
+    // ============================================================
+    async function confirmReset() {
+      const code = prompt('Pour confirmer la suppression de TOUTES les rencontres, tapez : SUPPRIMER');
+      if (code !== 'SUPPRIMER') return;
+      meetings = [];
+      localStorage.setItem('ceidef_meetings', JSON.stringify(meetings));
+      if (online) {
+        await supabase.from('meetings').delete().eq('event_id', EVENT_ID);
+      }
+      toast('Toutes les rencontres ont été supprimées');
+      showView('home');
+    }
+    window.confirmReset = confirmReset;
+
+    // ============================================================
+    // TOAST
+    // ============================================================
+    let toastTimer = null;
+    function toast(msg, isError) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.className = 'toast show' + (isError ? ' error' : '');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.remove('show'), 2500);
+    }
+
+    // ============================================================
+    // REALTIME (Supabase subscription)
+    // ============================================================
+    function subscribeToChanges() {
+      if (!online) return;
+      supabase
+        .channel('meetings-changes')
+        .on('postgres_changes', { event: '*', schema: 'public', table: 'meetings', filter: `event_id=eq.${EVENT_ID}` },
+          async () => {
+            await loadMeetings();
+            updateHomeCount();
+            if (document.getElementById('view-dashboard').classList.contains('active')) loadDashboard();
+            if (document.getElementById('view-meetings').classList.contains('active')) renderMeetingsList();
+          })
+        .subscribe();
+    }
+
+    // ============================================================
+    // INIT
+    // ============================================================
+    async function init() {
+      initSupabase();
+      renderCollabList();
+      await loadParticipants();
+      await loadMeetings();
+      updateHomeCount();
+      subscribeToChanges();
+    }
+
+    init();
+  </script>
+</body>
+</html>
