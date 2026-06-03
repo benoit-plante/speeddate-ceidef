@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -35,16 +36,14 @@
     body { min-height: 100vh; padding: 0 16px 80px; }
     .container { max-width: 540px; margin: 0 auto; }
 
-    /* Header */
     .topbar { display: flex; justify-content: space-between; align-items: center; padding: 16px 0 12px; margin-bottom: 8px; }
     .brand { display: flex; align-items: baseline; gap: 8px; }
     .brand-mark { font-family: var(--serif); font-weight: 500; font-size: 19px; letter-spacing: -0.01em; color: var(--accent); }
     .brand-sub { font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.08em; }
-    .topbar-actions { display: flex; gap: 4px; }
+    .topbar-actions { display: flex; gap: 4px; align-items: center; }
     .icon-btn { background: transparent; border: none; color: var(--ink-soft); padding: 8px; cursor: pointer; border-radius: 8px; font-size: 18px; }
     .icon-btn:hover { background: var(--bg-soft); color: var(--ink); }
 
-    /* Cards & typography */
     .card { background: var(--bg-card); border-radius: var(--radius-lg); padding: 24px 20px; border: 1px solid var(--border-soft); }
     .card-soft { background: var(--bg-soft); border-radius: var(--radius); padding: 16px; }
     h1, h2, h3 { font-family: var(--serif); font-weight: 500; letter-spacing: -0.01em; margin: 0; color: var(--ink); }
@@ -55,7 +54,6 @@
     .muted { color: var(--ink-soft); font-size: 13px; }
     .tiny { font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500; }
 
-    /* Forms */
     label { display: block; font-size: 13px; color: var(--ink-soft); margin-bottom: 6px; font-weight: 500; }
     input[type="text"], input[type="password"], textarea, select {
       width: 100%; padding: 12px 14px; font-family: var(--sans); font-size: 15px;
@@ -67,7 +65,6 @@
     }
     textarea { resize: vertical; min-height: 70px; line-height: 1.5; }
 
-    /* Buttons */
     button { font-family: var(--sans); font-size: 15px; cursor: pointer; transition: all 0.15s; }
     .btn { padding: 14px 18px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--bg-card); color: var(--ink); font-weight: 500; display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; }
     .btn:hover:not(:disabled) { background: var(--bg-soft); border-color: var(--ink-faint); }
@@ -79,14 +76,12 @@
     .btn-sm { padding: 8px 12px; font-size: 13px; width: auto; }
     .btn-danger { color: var(--danger); }
 
-    /* Hero (accueil) */
     .hero { text-align: center; padding: 28px 20px 24px; background: var(--bg-card); border-radius: var(--radius-lg); border: 1px solid var(--border-soft); margin-bottom: 16px; }
     .hero-mark { width: 56px; height: 56px; margin: 0 auto 12px; border-radius: 50%; background: var(--accent-bg); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 26px; }
     .hero-title { font-family: var(--serif); font-size: 28px; font-weight: 500; line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 4px; }
     .hero-sub { font-size: 14px; color: var(--ink-soft); margin: 0 0 4px; }
     .hero-year { font-size: 12px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
 
-    /* Selector */
     .selector { padding: 14px 16px; background: var(--bg-soft); border: 1px solid var(--border-soft); border-radius: var(--radius); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
     .selector:hover { border-color: var(--ink-faint); }
     .selector-label { font-size: 15px; color: var(--ink); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -94,7 +89,6 @@
     .selector-arrow { color: var(--ink-faint); font-size: 16px; }
     .swap-line { text-align: center; color: var(--ink-faint); margin: 8px 0; font-size: 16px; }
 
-    /* Picker modal */
     .modal-backdrop { position: fixed; inset: 0; background: rgba(26, 24, 20, 0.4); backdrop-filter: blur(4px); z-index: 100; display: none; align-items: flex-end; justify-content: center; }
     .modal-backdrop.open { display: flex; }
     .modal { background: var(--bg); border-radius: var(--radius-lg) var(--radius-lg) 0 0; width: 100%; max-width: 540px; max-height: 80vh; display: flex; flex-direction: column; padding: 16px; }
@@ -106,19 +100,64 @@
     .picker-option.taken { opacity: 0.4; cursor: not-allowed; }
     .picker-option.taken::after { content: 'déjà sélectionné'; font-size: 11px; color: var(--ink-faint); margin-left: auto; font-style: italic; }
 
-    /* Collaboration rows */
     .collab-section { margin-top: 4px; }
-    .collab-header { display: grid; grid-template-columns: 1fr 60px 60px; gap: 8px; padding: 0 14px 6px; align-items: end; }
-    .collab-header-year { text-align: center; font-size: 11px; font-weight: 500; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; }
-    .collab-row { display: grid; grid-template-columns: 1fr 60px 60px; gap: 8px; align-items: center; padding: 12px 14px; background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: var(--radius); margin-bottom: 6px; transition: all 0.15s; }
+    .collab-header { display: grid; grid-template-columns: 1fr 46px 46px 46px; gap: 6px; padding: 0 14px 6px; align-items: end; }
+    .collab-header-year { text-align: center; font-size: 10px; font-weight: 500; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.04em; }
+    .collab-row {
+      background: var(--bg-card); border: 1px solid var(--border-soft);
+      border-radius: var(--radius); margin-bottom: 6px; transition: all 0.15s;
+      overflow: hidden;
+    }
     .collab-row.checked { background: var(--accent-bg); border-color: var(--accent-soft); }
-    .collab-label { display: flex; align-items: center; gap: 12px; cursor: pointer; user-select: none; min-width: 0; }
+    .collab-main { display: grid; grid-template-columns: 1fr 46px 46px 46px; gap: 6px; align-items: center; padding: 12px 14px; }
+    .collab-label { display: flex; align-items: center; gap: 10px; cursor: pointer; user-select: none; min-width: 0; }
     .collab-icon { color: var(--ink-soft); font-size: 18px; flex-shrink: 0; }
     .collab-row.checked .collab-icon { color: var(--accent); }
     .collab-text { font-size: 14px; line-height: 1.3; flex: 1; min-width: 0; }
     .collab-row.checked .collab-text { color: var(--accent); font-weight: 500; }
 
-    /* Checkboxes */
+    .collab-details {
+      padding: 0 14px 14px;
+      display: none;
+      animation: slideDown 0.2s ease-out;
+    }
+    .collab-row.checked .collab-details { display: block; }
+    @keyframes slideDown { from { opacity: 0; max-height: 0; } to { opacity: 1; max-height: 600px; } }
+
+    .details-hint {
+      font-size: 11px; color: var(--ink-soft); font-style: italic;
+      margin: 0 0 10px; padding: 8px 10px;
+      background: var(--bg); border-radius: 8px;
+      border-left: 2px solid var(--accent-soft);
+    }
+    .details-field { margin-bottom: 8px; }
+    .details-field label {
+      font-size: 11px; color: var(--ink-soft); margin-bottom: 4px;
+      text-transform: uppercase; letter-spacing: 0.04em; font-weight: 500;
+    }
+    .details-field input[type="text"] {
+      padding: 8px 12px; font-size: 14px; background: var(--bg-card);
+    }
+    .students-list { display: flex; flex-direction: column; gap: 6px; }
+    .student-row {
+      display: flex; gap: 6px; align-items: center;
+    }
+    .student-row input { flex: 1; }
+    .student-remove {
+      background: transparent; border: none; color: var(--ink-faint);
+      cursor: pointer; padding: 6px; border-radius: 6px; font-size: 16px;
+      flex-shrink: 0;
+    }
+    .student-remove:hover { background: var(--bg-soft); color: var(--danger); }
+    .btn-add-student {
+      background: var(--bg-card); border: 1px dashed var(--accent-soft);
+      color: var(--accent); padding: 8px 12px; border-radius: 8px;
+      font-size: 12px; cursor: pointer; margin-top: 4px;
+      display: inline-flex; align-items: center; gap: 6px;
+      font-weight: 500;
+    }
+    .btn-add-student:hover { background: var(--accent-bg); }
+
     .check { position: relative; width: 22px; height: 22px; flex-shrink: 0; cursor: pointer; }
     .check input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
     .check-box { width: 22px; height: 22px; border: 1.5px solid var(--border); border-radius: 6px; background: var(--bg-card); display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
@@ -127,11 +166,9 @@
     .check input:disabled + .check-box { opacity: 0.3; cursor: not-allowed; background: var(--bg-soft); }
     .date-cell { display: flex; justify-content: center; }
 
-    /* Counter */
     .counter { text-align: center; padding: 10px; color: var(--ink-soft); font-size: 13px; margin-top: 12px; }
     .counter.active { color: var(--accent); font-weight: 500; }
 
-    /* Confirmation */
     .confirm-check { width: 72px; height: 72px; border-radius: 50%; background: var(--success-bg); color: var(--success); display: flex; align-items: center; justify-content: center; font-size: 36px; margin: 0 auto 16px; }
     .confirm-pair { padding: 14px 16px; background: var(--bg-soft); border-radius: var(--radius); margin: 16px 0; text-align: left; }
     .pair-names { font-weight: 500; font-size: 15px; margin: 0 0 8px; }
@@ -139,7 +176,6 @@
     .tag { background: var(--bg-card); border: 1px solid var(--border-soft); font-size: 12px; padding: 4px 10px; border-radius: 20px; color: var(--ink-soft); display: inline-flex; align-items: center; gap: 4px; }
     .tag-year { font-size: 10px; color: var(--accent); font-weight: 500; margin-left: 4px; }
 
-    /* Meetings list */
     .meeting-item { padding: 14px 16px; background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: var(--radius); margin-bottom: 8px; cursor: pointer; transition: all 0.15s; }
     .meeting-item:hover { border-color: var(--accent-soft); }
     .meeting-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; gap: 8px; }
@@ -147,7 +183,6 @@
     .meeting-count { font-size: 11px; color: var(--accent); background: var(--accent-bg); padding: 3px 8px; border-radius: 10px; flex-shrink: 0; }
     .empty-state { text-align: center; padding: 32px 16px; color: var(--ink-faint); font-size: 14px; }
 
-    /* Dashboard */
     .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 20px; }
     .stat { background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: var(--radius); padding: 14px; }
     .stat-label { font-size: 11px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 4px; }
@@ -158,43 +193,36 @@
     .bar-fill { height: 100%; background: var(--accent-soft); border-radius: 6px; }
     .bar-val { text-align: right; font-weight: 500; font-size: 13px; }
 
-    /* Admin */
     .participant-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-card); border: 1px solid var(--border-soft); border-radius: var(--radius); margin-bottom: 6px; font-size: 14px; gap: 8px; }
     .add-row { display: flex; gap: 6px; margin-bottom: 12px; }
     .add-row input { flex: 1; }
     .add-row button { flex-shrink: 0; }
 
-    /* Section spacing */
     .section { margin-bottom: 20px; }
     .section-title { font-family: var(--serif); font-size: 17px; font-weight: 500; margin: 0 0 4px; }
     .section-sub { font-size: 13px; color: var(--ink-soft); margin: 0 0 12px; }
 
-    /* Toast */
     .toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--ink); color: var(--bg); padding: 12px 20px; border-radius: 24px; font-size: 14px; z-index: 200; opacity: 0; transition: opacity 0.2s; pointer-events: none; }
     .toast.show { opacity: 1; }
     .toast.error { background: var(--danger); }
 
-    /* Status indicator */
     .status { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--ink-faint); }
     .status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-faint); }
     .status-dot.online { background: var(--success); }
     .status-dot.offline { background: var(--danger); }
 
-    /* Views */
     .view { display: none; animation: fadeIn 0.2s ease-out; }
     .view.active { display: block; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* Hide on small */
     @media (max-width: 380px) {
-      .collab-header { grid-template-columns: 1fr 52px 52px; }
-      .collab-row { grid-template-columns: 1fr 52px 52px; padding: 10px 12px; }
+      .collab-header { grid-template-columns: 1fr 40px 40px 40px; gap: 4px; }
+      .collab-main { grid-template-columns: 1fr 40px 40px 40px; gap: 4px; padding: 10px 12px; }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Top bar -->
     <div class="topbar">
       <div class="brand">
         <span class="brand-mark">CEIDEF</span>
@@ -216,7 +244,7 @@
         <div class="hero-mark"><i class="ti ti-users"></i></div>
         <h1 class="hero-title">Possibilités de collaboration</h1>
         <p class="hero-sub">Identifiez les projets que vous pourriez mener ensemble</p>
-        <p class="hero-year">2026-2027 · 2027-2028</p>
+        <p class="hero-year">2026-2027 · 2027-2028 · 2028 et +</p>
 
         <button class="btn btn-primary" onclick="startNewMeeting()">
           <i class="ti ti-plus"></i> Nouvelle rencontre
@@ -261,14 +289,13 @@
             <span></span>
             <span class="collab-header-year">26-27</span>
             <span class="collab-header-year">27-28</span>
+            <span class="collab-header-year">2028+</span>
           </div>
 
           <div id="collab-list" class="collab-section"></div>
 
-          <input type="text" id="other-input" placeholder="Précisez votre idée" style="display: none; margin-top: 8px;">
-
           <div style="margin-top: 16px;">
-            <label>Notes (optionnel)</label>
+            <label>Notes générales</label>
             <textarea id="notes-input" placeholder="Ex: reprendre contact en septembre pour discuter du devis"></textarea>
           </div>
 
@@ -385,7 +412,6 @@
     </div>
   </div>
 
-  <!-- Picker modal -->
   <div class="modal-backdrop" id="picker-modal" onclick="if(event.target===this) closePicker()">
     <div class="modal">
       <div class="modal-header">
@@ -397,52 +423,44 @@
     </div>
   </div>
 
-  <!-- Toast -->
   <div class="toast" id="toast"></div>
 
   <script type="module">
     import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 
     // ============================================================
-    // CONFIGURATION — REMPLACEZ CES VALEURS AVEC VOS CLÉS SUPABASE
+    // CONFIGURATION SUPABASE
     // ============================================================
-    const SUPABASE_URL = 'https://wamngrzlxbczraqmsvbq.supabase.co';        // ex: https://abcdefgh.supabase.co
-    const SUPABASE_ANON_KEY = 'sb_publishable_efTAFtXqinU4rlw1rstErQ_S9gyJoyq';        // clé publique anon
-    const EVENT_ID = 'ceidef-2026';                    // identifiant de l'événement
+    const SUPABASE_URL = 'https://wamngrzlxbczraqmsvbq.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_efTAFtXqinU4rlw1rstErQ_S9gyJoyq';
+    const EVENT_ID = 'ceidef-2026';
     // ============================================================
 
-    // Liste initiale des chercheurs (utilisée pour le premier remplissage)
     const INITIAL_PARTICIPANTS = [
-      'Karine Dubois-Comtois',
-      'Patricia Germain',
-      'Nicolas Berthelot',
-      'Eve-Line Bussières',
-      'Jacinthe Dion',
-      'Erica Goupil',
-      'Julie Lefebvre',
-      'Roxanne Lemieux',
-      'Julie Marcotte',
-      'Marie-Josée Martel',
-      'Tristan Milot',
-      'Diane St-Laurent',
-      'Annie Stipanicic',
-      'Marie-Pier Vaillancourt-Morel'
+      'Karine Dubois-Comtois', 'Patricia Germain', 'Nicolas Berthelot',
+      'Eve-Line Bussières', 'Jacinthe Dion', 'Erica Goupil',
+      'Julie Lefebvre', 'Roxanne Lemieux', 'Julie Marcotte',
+      'Marie-Josée Martel', 'Tristan Milot', 'Diane St-Laurent',
+      'Annie Stipanicic', 'Marie-Pier Vaillancourt-Morel'
     ];
 
-    // Catégories de collaboration tirées du formulaire CEIDEF
+    // Catégories de collaboration avec leurs champs additionnels
+    // type "student": nécessite nom étudiant + thématique (avec possibilité de plusieurs étudiants)
+    // type "theme": nécessite thématique seulement
+    // type "other": champ libre uniquement
     const COLLAB_TYPES = [
-      { id: 'codir_rd',     icon: 'ti-school',           label: "Codirection d'activité de recherche dirigée" },
-      { id: 'codir_thesis', icon: 'ti-certificate',      label: 'Codirection de mémoire / thèse' },
-      { id: 'comite',       icon: 'ti-users-group',      label: 'Comité de thèse' },
-      { id: 'postdoc',      icon: 'ti-microscope',       label: 'Stage postdoctoral' },
-      { id: 'projet',       icon: 'ti-flask',            label: 'Projet de recherche' },
-      { id: 'redaction',    icon: 'ti-file-text',        label: 'Rédaction (article, livre, rapport)' },
-      { id: 'formation',    icon: 'ti-chalkboard',       label: 'Formation' },
-      { id: 'transfert',    icon: 'ti-book',             label: 'Transfert de connaissance' },
-      { id: 'other',        icon: 'ti-plus',             label: 'Autre' }
+      { id: 'codir_rd',     icon: 'ti-school',          label: "Codirection d'activité de recherche dirigée", type: 'student' },
+      { id: 'codir_thesis', icon: 'ti-certificate',     label: 'Codirection de mémoire / thèse',              type: 'student' },
+      { id: 'comite',       icon: 'ti-users-group',     label: 'Comité de thèse',                             type: 'student' },
+      { id: 'postdoc',      icon: 'ti-microscope',      label: 'Stage postdoctoral',                          type: 'student' },
+      { id: 'projet',       icon: 'ti-flask',           label: 'Projet de recherche',                         type: 'theme'   },
+      { id: 'redaction',    icon: 'ti-file-text',       label: 'Rédaction (article, livre, rapport)',         type: 'theme'   },
+      { id: 'formation',    icon: 'ti-chalkboard',      label: 'Formation',                                   type: 'theme'   },
+      { id: 'transfert',    icon: 'ti-book',            label: 'Transfert de connaissance',                   type: 'theme'   },
+      { id: 'other',        icon: 'ti-plus',            label: 'Autre',                                       type: 'other'   }
     ];
 
-    const YEARS = ['26-27', '27-28'];
+    const YEARS = ['26-27', '27-28', '2028+'];
 
     // ============================================================
     // STATE
@@ -459,8 +477,7 @@
     // SUPABASE INIT
     // ============================================================
     function initSupabase() {
-      if (SUPABASE_URL === 'VOTRE_URL_SUPABASE' || !SUPABASE_URL.startsWith('https://')) {
-        console.warn('Supabase non configuré — mode local uniquement');
+      if (!SUPABASE_URL.startsWith('https://')) {
         setStatus(false, 'mode local');
         return false;
       }
@@ -477,10 +494,8 @@
 
     function setStatus(isOnline, text) {
       online = isOnline;
-      const dot = document.getElementById('status-dot');
-      const txt = document.getElementById('status-text');
-      dot.className = 'status-dot ' + (isOnline ? 'online' : 'offline');
-      txt.textContent = text;
+      document.getElementById('status-dot').className = 'status-dot ' + (isOnline ? 'online' : 'offline');
+      document.getElementById('status-text').textContent = text;
     }
 
     // ============================================================
@@ -489,17 +504,13 @@
     async function loadParticipants() {
       if (online) {
         const { data, error } = await supabase
-          .from('participants')
-          .select('*')
-          .eq('event_id', EVENT_ID)
-          .order('name');
+          .from('participants').select('*').eq('event_id', EVENT_ID).order('name');
         if (!error && data) {
           participants = data.map(p => p.name);
           localStorage.setItem('ceidef_participants', JSON.stringify(participants));
           return;
         }
       }
-      // Fallback local
       const stored = localStorage.getItem('ceidef_participants');
       if (stored) {
         participants = JSON.parse(stored);
@@ -549,9 +560,7 @@
     async function loadMeetings() {
       if (online) {
         const { data, error } = await supabase
-          .from('meetings')
-          .select('*')
-          .eq('event_id', EVENT_ID)
+          .from('meetings').select('*').eq('event_id', EVENT_ID)
           .order('created_at', { ascending: false });
         if (!error && data) {
           meetings = data;
@@ -568,16 +577,13 @@
     }
 
     async function saveMeeting(meeting) {
-      // Mise à jour locale immédiate
-      const existingIdx = meetings.findIndex(m => m.id === meeting.id);
-      if (existingIdx >= 0) meetings[existingIdx] = meeting;
+      const idx = meetings.findIndex(m => m.id === meeting.id);
+      if (idx >= 0) meetings[idx] = meeting;
       else meetings.unshift(meeting);
       localStorage.setItem('ceidef_meetings', JSON.stringify(meetings));
 
       if (online) {
-        const { error } = await supabase
-          .from('meetings')
-          .upsert(meeting, { onConflict: 'id' });
+        const { error } = await supabase.from('meetings').upsert(meeting, { onConflict: 'id' });
         if (error) {
           console.error('Erreur sauvegarde:', error);
           toast('Sauvegardé localement (problème serveur)', true);
@@ -585,14 +591,6 @@
         }
       }
       return true;
-    }
-
-    async function deleteMeeting(id) {
-      meetings = meetings.filter(m => m.id !== id);
-      localStorage.setItem('ceidef_meetings', JSON.stringify(meetings));
-      if (online) {
-        await supabase.from('meetings').delete().eq('id', id);
-      }
     }
 
     function findExistingMeeting(p1, p2) {
@@ -621,20 +619,14 @@
       document.getElementById('picker1-label').classList.add('empty');
       document.getElementById('picker2-label').textContent = 'Sélectionner...';
       document.getElementById('picker2-label').classList.add('empty');
-      document.querySelectorAll('#collab-list input[type="checkbox"]').forEach(cb => cb.checked = false);
-      document.querySelectorAll('.collab-row').forEach(r => r.classList.remove('checked'));
-      document.querySelectorAll('.date-cell input').forEach(cb => cb.disabled = true);
       document.getElementById('notes-input').value = '';
-      document.getElementById('other-input').value = '';
-      document.getElementById('other-input').style.display = 'none';
+      renderCollabList(); // reset complet de la liste
       updateCounter();
       showView('select');
     }
     window.startNewMeeting = startNewMeeting;
 
-    function showMeetingsList() {
-      showView('meetings');
-    }
+    function showMeetingsList() { showView('meetings'); }
     window.showMeetingsList = showMeetingsList;
 
     // ============================================================
@@ -690,33 +682,118 @@
     // ============================================================
     // COLLABORATION CHECKLIST
     // ============================================================
-    function renderCollabList() {
+    function renderCollabList(prefilledData) {
+      // prefilledData = { collaborations: [{id, years, theme, students, other_text}] }
+      const data = prefilledData || { collaborations: [] };
+      const dataMap = {};
+      (data.collaborations || []).forEach(c => { dataMap[c.id] = c; });
+
       const list = document.getElementById('collab-list');
-      list.innerHTML = COLLAB_TYPES.map(c => `
-        <div class="collab-row" id="row-${c.id}">
-          <label class="collab-label">
+      list.innerHTML = COLLAB_TYPES.map(c => {
+        const prefill = dataMap[c.id];
+        const isChecked = !!prefill;
+        const yearCheckboxes = YEARS.map(y => {
+          const checked = prefill && (prefill.years || []).includes(y);
+          return `<div class="date-cell">
             <span class="check">
-              <input type="checkbox" data-id="${c.id}" onchange="onCollabToggle('${c.id}')">
+              <input type="checkbox" data-id="${c.id}" data-year="${y}" ${isChecked ? '' : 'disabled'} ${checked ? 'checked' : ''} onchange="updateCounter()">
               <span class="check-box"></span>
             </span>
-            <i class="ti ${c.icon} collab-icon"></i>
-            <span class="collab-text">${c.label}</span>
-          </label>
-          <div class="date-cell">
-            <span class="check">
-              <input type="checkbox" data-id="${c.id}" data-year="26-27" disabled onchange="updateCounter()">
-              <span class="check-box"></span>
-            </span>
+          </div>`;
+        }).join('');
+
+        let detailsHTML = '';
+        if (c.type === 'student') {
+          const students = (prefill && prefill.students && prefill.students.length) ? prefill.students : [''];
+          const theme = prefill ? (prefill.theme || '') : '';
+          detailsHTML = `
+            <div class="collab-details" id="details-${c.id}">
+              <p class="details-hint"><i class="ti ti-info-circle"></i> Précisez la thématique et le ou les étudiant·e·s en tête</p>
+              <div class="details-field">
+                <label>Thématique</label>
+                <input type="text" data-field="theme" data-id="${c.id}" placeholder="Ex: Attachement parent-enfant" value="${escapeHtml(theme)}">
+              </div>
+              <div class="details-field">
+                <label>Étudiant·e·s</label>
+                <div class="students-list" id="students-${c.id}">
+                  ${students.map((s, i) => renderStudentRow(c.id, s, i)).join('')}
+                </div>
+                <button class="btn-add-student" onclick="addStudent('${c.id}')"><i class="ti ti-plus"></i> Ajouter un·e étudiant·e</button>
+              </div>
+            </div>
+          `;
+        } else if (c.type === 'theme') {
+          const theme = prefill ? (prefill.theme || '') : '';
+          detailsHTML = `
+            <div class="collab-details" id="details-${c.id}">
+              <p class="details-hint"><i class="ti ti-info-circle"></i> Précisez la thématique envisagée</p>
+              <div class="details-field">
+                <label>Thématique</label>
+                <input type="text" data-field="theme" data-id="${c.id}" placeholder="Ex: Régulation émotionnelle en contexte de vulnérabilité" value="${escapeHtml(theme)}">
+              </div>
+            </div>
+          `;
+        } else if (c.type === 'other') {
+          const otherText = prefill ? (prefill.other_text || '') : '';
+          detailsHTML = `
+            <div class="collab-details" id="details-${c.id}">
+              <p class="details-hint"><i class="ti ti-info-circle"></i> Précisez votre idée de collaboration</p>
+              <div class="details-field">
+                <label>Description</label>
+                <input type="text" data-field="other_text" data-id="${c.id}" placeholder="Décrivez la collaboration envisagée" value="${escapeHtml(otherText)}">
+              </div>
+            </div>
+          `;
+        }
+
+        return `
+          <div class="collab-row ${isChecked ? 'checked' : ''}" id="row-${c.id}">
+            <div class="collab-main">
+              <label class="collab-label">
+                <span class="check">
+                  <input type="checkbox" data-id="${c.id}" ${isChecked ? 'checked' : ''} onchange="onCollabToggle('${c.id}')">
+                  <span class="check-box"></span>
+                </span>
+                <i class="ti ${c.icon} collab-icon"></i>
+                <span class="collab-text">${c.label}</span>
+              </label>
+              ${yearCheckboxes}
+            </div>
+            ${detailsHTML}
           </div>
-          <div class="date-cell">
-            <span class="check">
-              <input type="checkbox" data-id="${c.id}" data-year="27-28" disabled onchange="updateCounter()">
-              <span class="check-box"></span>
-            </span>
-          </div>
-        </div>
-      `).join('');
+        `;
+      }).join('');
     }
+
+    function renderStudentRow(collabId, value, index) {
+      return `<div class="student-row" data-collab="${collabId}">
+        <input type="text" data-field="student" data-id="${collabId}" placeholder="Nom de l'étudiant·e" value="${escapeHtml(value)}">
+        <button class="student-remove" onclick="removeStudent(this)" aria-label="Retirer"><i class="ti ti-x"></i></button>
+      </div>`;
+    }
+
+    function escapeHtml(s) {
+      return String(s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+
+    function addStudent(collabId) {
+      const list = document.getElementById('students-' + collabId);
+      const div = document.createElement('div');
+      div.innerHTML = renderStudentRow(collabId, '', list.children.length);
+      list.appendChild(div.firstElementChild);
+    }
+    window.addStudent = addStudent;
+
+    function removeStudent(btn) {
+      const row = btn.closest('.student-row');
+      const list = row.parentElement;
+      if (list.children.length > 1) {
+        row.remove();
+      } else {
+        row.querySelector('input').value = '';
+      }
+    }
+    window.removeStudent = removeStudent;
 
     function onCollabToggle(id) {
       const row = document.getElementById('row-' + id);
@@ -730,11 +807,6 @@
         row.classList.remove('checked');
         dateCbs.forEach(cb => { cb.disabled = true; cb.checked = false; });
       }
-
-      if (id === 'other') {
-        document.getElementById('other-input').style.display = mainCb.checked ? 'block' : 'none';
-      }
-
       updateCounter();
     }
     window.onCollabToggle = onCollabToggle;
@@ -764,6 +836,41 @@
     }
 
     // ============================================================
+    // COLLECT DATA FROM FORM
+    // ============================================================
+    function collectCollaborations() {
+      const collabs = [];
+      COLLAB_TYPES.forEach(c => {
+        const main = document.querySelector(`.collab-label input[data-id="${c.id}"]`);
+        if (!main || !main.checked) return;
+
+        const years = [];
+        YEARS.forEach(y => {
+          const ycb = document.querySelector(`.date-cell input[data-id="${c.id}"][data-year="${y}"]`);
+          if (ycb && ycb.checked) years.push(y);
+        });
+
+        const item = { id: c.id, years };
+
+        if (c.type === 'student') {
+          const themeInput = document.querySelector(`input[data-field="theme"][data-id="${c.id}"]`);
+          item.theme = themeInput ? themeInput.value.trim() : '';
+          const studentInputs = document.querySelectorAll(`input[data-field="student"][data-id="${c.id}"]`);
+          item.students = Array.from(studentInputs).map(i => i.value.trim()).filter(v => v.length > 0);
+        } else if (c.type === 'theme') {
+          const themeInput = document.querySelector(`input[data-field="theme"][data-id="${c.id}"]`);
+          item.theme = themeInput ? themeInput.value.trim() : '';
+        } else if (c.type === 'other') {
+          const otherInput = document.querySelector(`input[data-field="other_text"][data-id="${c.id}"]`);
+          item.other_text = otherInput ? otherInput.value.trim() : '';
+        }
+
+        collabs.push(item);
+      });
+      return collabs;
+    }
+
+    // ============================================================
     // SUBMIT MEETING
     // ============================================================
     async function submitMeeting() {
@@ -773,7 +880,6 @@
 
       const [a, b] = normalizePair(p1, p2);
 
-      // Vérifier doublon (sauf si on édite)
       if (!editingMeetingId) {
         const existing = findExistingMeeting(a, b);
         if (existing) {
@@ -786,19 +892,7 @@
         }
       }
 
-      const collabs = [];
-      COLLAB_TYPES.forEach(c => {
-        const main = document.querySelector(`.collab-label input[data-id="${c.id}"]`);
-        if (!main.checked) return;
-        const years = [];
-        YEARS.forEach(y => {
-          const ycb = document.querySelector(`.date-cell input[data-id="${c.id}"][data-year="${y}"]`);
-          if (ycb && ycb.checked) years.push(y);
-        });
-        collabs.push({ id: c.id, years });
-      });
-
-      const otherText = document.getElementById('other-input').value.trim();
+      const collabs = collectCollaborations();
       const notes = document.getElementById('notes-input').value.trim();
 
       const meeting = {
@@ -807,16 +901,13 @@
         person_a: a,
         person_b: b,
         collaborations: collabs,
-        other_text: otherText || null,
         notes: notes || null,
         updated_at: new Date().toISOString()
       };
       if (!editingMeetingId) meeting.created_at = meeting.updated_at;
 
       const ok = await saveMeeting(meeting);
-      if (ok) {
-        showConfirmation(meeting);
-      }
+      if (ok) showConfirmation(meeting);
     }
     window.submitMeeting = submitMeeting;
 
@@ -852,26 +943,8 @@
       document.getElementById('picker2-label').textContent = m.person_b;
       document.getElementById('picker2-label').classList.remove('empty');
 
-      // Reset puis remplir
-      document.querySelectorAll('#collab-list input[type="checkbox"]').forEach(cb => cb.checked = false);
-      document.querySelectorAll('.collab-row').forEach(r => r.classList.remove('checked'));
-      document.querySelectorAll('.date-cell input').forEach(cb => cb.disabled = true);
-
-      (m.collaborations || []).forEach(c => {
-        const main = document.querySelector(`.collab-label input[data-id="${c.id}"]`);
-        if (main) {
-          main.checked = true;
-          onCollabToggle(c.id);
-          (c.years || []).forEach(y => {
-            const ycb = document.querySelector(`.date-cell input[data-id="${c.id}"][data-year="${y}"]`);
-            if (ycb) ycb.checked = true;
-          });
-        }
-      });
-
-      document.getElementById('other-input').value = m.other_text || '';
+      renderCollabList({ collaborations: m.collaborations || [] });
       document.getElementById('notes-input').value = m.notes || '';
-      if (m.other_text) document.getElementById('other-input').style.display = 'block';
 
       updateCounter();
       showView('select');
@@ -907,9 +980,8 @@
     }
 
     function updateHomeCount() {
-      const count = meetings.length;
       const el = document.getElementById('home-count');
-      el.textContent = count > 0 ? `(${count})` : '';
+      el.textContent = meetings.length > 0 ? `(${meetings.length})` : '';
     }
 
     // ============================================================
@@ -922,16 +994,16 @@
       const researcherSet = new Set();
       meetings.forEach(m => { researcherSet.add(m.person_a); researcherSet.add(m.person_b); });
 
-      // Distribution par type
       const typeCount = {};
       COLLAB_TYPES.forEach(t => typeCount[t.id] = 0);
       meetings.forEach(m => (m.collaborations || []).forEach(c => { if (typeCount[c.id] != null) typeCount[c.id]++; }));
       const sortedTypes = COLLAB_TYPES.map(t => ({ ...t, count: typeCount[t.id] })).sort((a, b) => b.count - a.count);
       const topType = sortedTypes.find(t => t.count > 0);
 
-      // Distribution par année
-      const yearCount = { '26-27': 0, '27-28': 0 };
-      meetings.forEach(m => (m.collaborations || []).forEach(c => (c.years || []).forEach(y => { if (yearCount[y] != null) yearCount[y]++; })));
+      const yearCount = { '26-27': 0, '27-28': 0, '2028+': 0 };
+      meetings.forEach(m => (m.collaborations || []).forEach(c => (c.years || []).forEach(y => {
+        if (yearCount[y] != null) yearCount[y]++;
+      })));
 
       document.getElementById('stat-meetings').textContent = totalMeetings;
       document.getElementById('stat-collabs').textContent = totalCollabs;
@@ -947,7 +1019,7 @@
         </div>
       `).join('') || '<div class="empty-state">Aucune donnée</div>';
 
-      const maxYear = Math.max(1, yearCount['26-27'], yearCount['27-28']);
+      const maxYear = Math.max(1, yearCount['26-27'], yearCount['27-28'], yearCount['2028+']);
       document.getElementById('year-chart').innerHTML = `
         <div class="bar-row">
           <span class="bar-label">2026-2027</span>
@@ -958,6 +1030,11 @@
           <span class="bar-label">2027-2028</span>
           <div class="bar-track"><div class="bar-fill" style="width: ${(yearCount['27-28'] / maxYear * 100).toFixed(0)}%"></div></div>
           <span class="bar-val">${yearCount['27-28']}</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">2028 et +</span>
+          <div class="bar-track"><div class="bar-fill" style="width: ${(yearCount['2028+'] / maxYear * 100).toFixed(0)}%"></div></div>
+          <span class="bar-val">${yearCount['2028+']}</span>
         </div>
       `;
     }
@@ -986,25 +1063,29 @@
     // EXPORT CSV
     // ============================================================
     function exportCSV() {
-      const rows = [['Personne A', 'Personne B', 'Activité', '2026-2027', '2027-2028', 'Autre (précision)', 'Notes', 'Date création']];
+      const rows = [['Personne A', 'Personne B', 'Activité', '2026-2027', '2027-2028', '2028 et +', 'Thématique', 'Étudiant·e·s', 'Autre (précision)', 'Notes générales', 'Date création']];
       meetings.forEach(m => {
-        (m.collaborations || []).forEach(c => {
+        const collabs = m.collaborations || [];
+        if (collabs.length === 0) {
+          rows.push([m.person_a, m.person_b, '', '', '', '', '', '', '', m.notes || '', m.created_at || '']);
+          return;
+        }
+        collabs.forEach(c => {
           const type = COLLAB_TYPES.find(t => t.id === c.id);
-          const label = type ? type.label : c.id;
           rows.push([
             m.person_a,
             m.person_b,
-            label,
+            type ? type.label : c.id,
             (c.years || []).includes('26-27') ? 'X' : '',
             (c.years || []).includes('27-28') ? 'X' : '',
-            c.id === 'other' ? (m.other_text || '') : '',
+            (c.years || []).includes('2028+') ? 'X' : '',
+            c.theme || '',
+            (c.students || []).join('; '),
+            c.id === 'other' ? (c.other_text || '') : '',
             m.notes || '',
             m.created_at || ''
           ]);
         });
-        if ((m.collaborations || []).length === 0) {
-          rows.push([m.person_a, m.person_b, '', '', '', '', m.notes || '', m.created_at || '']);
-        }
       });
 
       const csv = rows.map(r => r.map(cell => {
@@ -1052,7 +1133,7 @@
     }
 
     // ============================================================
-    // REALTIME (Supabase subscription)
+    // REALTIME
     // ============================================================
     function subscribeToChanges() {
       if (!online) return;
