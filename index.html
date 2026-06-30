@@ -237,26 +237,36 @@
       </div>
     </div>
 
+    <!-- ===================== VIEW: HOME ===================== -->
     <div class="view active" id="view-home">
       <div class="hero">
         <div class="hero-mark"><i class="ti ti-users"></i></div>
         <h1 class="hero-title">Possibilités de collaboration</h1>
         <p class="hero-sub">Identifiez les projets que vous pourriez mener ensemble</p>
         <p class="hero-year">2026-2027 · 2027-2028 · 2028 et +</p>
-        <button class="btn btn-primary" onclick="startNewMeeting()"><i class="ti ti-plus"></i> Nouvelle rencontre</button>
-        <button class="btn" style="margin-top: 8px;" onclick="showMeetingsList()"><i class="ti ti-list"></i> Voir les rencontres <span id="home-count" class="muted" style="margin-left: 4px;"></span></button>
+
+        <button class="btn btn-primary" onclick="startNewMeeting()">
+          <i class="ti ti-plus"></i> Nouvelle rencontre
+        </button>
+        <button class="btn" style="margin-top: 8px;" onclick="showMeetingsList()">
+          <i class="ti ti-list"></i> Voir les rencontres
+          <span id="home-count" class="muted" style="margin-left: 4px;"></span>
+        </button>
       </div>
     </div>
 
+    <!-- ===================== VIEW: SELECT ===================== -->
     <div class="view" id="view-select">
       <div class="card">
         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
           <button class="icon-btn" onclick="showView('home')" aria-label="Retour"><i class="ti ti-arrow-left"></i></button>
           <h2 style="flex: 1;">Nouvelle rencontre</h2>
         </div>
+
         <div class="section">
           <p class="section-title">Qui s'est rencontré ?</p>
           <p class="section-sub">Sélectionnez les deux participants</p>
+
           <label>Personne 1</label>
           <div class="selector" onclick="openPicker(1)">
             <span class="selector-label empty" id="picker1-label">Sélectionner...</span>
@@ -269,37 +279,53 @@
             <span class="selector-arrow"><i class="ti ti-chevron-down"></i></span>
           </div>
         </div>
+
         <div class="section">
           <p class="section-title">Que pourriez-vous faire ensemble ?</p>
           <p class="section-sub">Cochez l'activité et indiquez la ou les périodes visées</p>
+
           <div class="collab-header">
             <span></span>
             <span class="collab-header-year">26-27</span>
             <span class="collab-header-year">27-28</span>
             <span class="collab-header-year">2028+</span>
           </div>
+
           <div id="collab-list" class="collab-section"></div>
+
           <div style="margin-top: 16px;">
             <label>Notes générales</label>
             <textarea id="notes-input" placeholder="Ex: reprendre contact en septembre pour discuter du devis"></textarea>
           </div>
+
           <p class="counter" id="counter">Aucune collaboration sélectionnée</p>
-          <button class="btn btn-primary" id="submit-btn" onclick="submitMeeting()" disabled><i class="ti ti-check"></i> Enregistrer la rencontre</button>
+
+          <button class="btn btn-primary" id="submit-btn" onclick="submitMeeting()" disabled>
+            <i class="ti ti-check"></i> Enregistrer la rencontre
+          </button>
         </div>
       </div>
     </div>
 
+    <!-- ===================== VIEW: CONFIRM ===================== -->
     <div class="view" id="view-confirm">
       <div class="card" style="text-align: center;">
         <div class="confirm-check"><i class="ti ti-check"></i></div>
         <h2>Rencontre enregistrée</h2>
         <p class="lead" id="confirm-names" style="margin-bottom: 4px;"></p>
+
         <div class="confirm-pair" id="confirm-summary"></div>
-        <button class="btn btn-primary" onclick="startNewMeeting()"><i class="ti ti-plus"></i> Nouvelle rencontre</button>
-        <button class="btn" style="margin-top: 8px;" onclick="showView('home')"><i class="ti ti-home"></i> Retour à l'accueil</button>
+
+        <button class="btn btn-primary" onclick="startNewMeeting()">
+          <i class="ti ti-plus"></i> Nouvelle rencontre
+        </button>
+        <button class="btn" style="margin-top: 8px;" onclick="showView('home')">
+          <i class="ti ti-home"></i> Retour à l'accueil
+        </button>
       </div>
     </div>
 
+    <!-- ===================== VIEW: MEETINGS LIST ===================== -->
     <div class="view" id="view-meetings">
       <div class="card">
         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
@@ -312,6 +338,7 @@
       </div>
     </div>
 
+    <!-- ===================== VIEW: DASHBOARD ===================== -->
     <div class="view" id="view-dashboard">
       <div class="card">
         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
@@ -319,41 +346,62 @@
           <h2 style="flex: 1;">Tableau de bord</h2>
           <button class="icon-btn" onclick="loadDashboard()" aria-label="Actualiser" title="Actualiser"><i class="ti ti-refresh"></i></button>
         </div>
+
         <div class="stats-grid">
-          <div class="stat"><p class="stat-label">Rencontres</p><p class="stat-value" id="stat-meetings">—</p></div>
-          <div class="stat"><p class="stat-label">Collaborations</p><p class="stat-value" id="stat-collabs">—</p></div>
-          <div class="stat"><p class="stat-label">Chercheurs actifs</p><p class="stat-value" id="stat-researchers">—</p></div>
-          <div class="stat"><p class="stat-label">Type populaire</p><p class="stat-value" id="stat-top" style="font-size: 14px; font-family: var(--sans); font-weight: 500; line-height: 1.3;">—</p></div>
+          <div class="stat">
+            <p class="stat-label">Rencontres</p>
+            <p class="stat-value" id="stat-meetings">—</p>
+          </div>
+          <div class="stat">
+            <p class="stat-label">Collaborations</p>
+            <p class="stat-value" id="stat-collabs">—</p>
+          </div>
+          <div class="stat">
+            <p class="stat-label">Chercheurs actifs</p>
+            <p class="stat-value" id="stat-researchers">—</p>
+          </div>
+          <div class="stat">
+            <p class="stat-label">Type populaire</p>
+            <p class="stat-value" id="stat-top" style="font-size: 14px; font-family: var(--sans); font-weight: 500; line-height: 1.3;">—</p>
+          </div>
         </div>
+
         <div class="section">
           <p class="section-title">Distribution par activité</p>
           <div id="distribution-chart" style="margin-top: 12px;"></div>
         </div>
+
         <div class="section">
           <p class="section-title">Distribution par période</p>
           <div id="year-chart" style="margin-top: 12px;"></div>
         </div>
+
         <div style="display: flex; gap: 8px; margin-top: 16px;">
           <button class="btn" onclick="exportCSV()"><i class="ti ti-download"></i> Exporter CSV</button>
         </div>
       </div>
     </div>
 
+    <!-- ===================== VIEW: ADMIN ===================== -->
     <div class="view" id="view-admin">
       <div class="card">
         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
           <button class="icon-btn" onclick="showView('home')" aria-label="Retour"><i class="ti ti-arrow-left"></i></button>
           <h2 style="flex: 1;">Administration</h2>
         </div>
+
         <div class="section">
           <p class="section-title">Participants</p>
           <p class="section-sub" id="admin-count">— inscrits</p>
+
           <div class="add-row">
             <input type="text" id="new-participant" placeholder="Nom du chercheur" onkeydown="if(event.key==='Enter') addParticipant()">
             <button class="btn btn-sm" onclick="addParticipant()"><i class="ti ti-plus"></i></button>
           </div>
+
           <div id="participants-list"></div>
         </div>
+
         <div class="section">
           <p class="section-title">Données</p>
           <button class="btn" onclick="exportCSV()" style="margin-bottom: 8px;"><i class="ti ti-download"></i> Exporter les rencontres (CSV)</button>
@@ -377,14 +425,27 @@
   <div class="toast" id="toast"></div>
 
   <script type="module">
-    const GIST_ID = '2773bf98f0df5245bbb57b1a51af1f82';
-    const GITHUB_TOKEN = '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';
-    const GIST_FILENAME = 'ceidef-data.json';
+    // ============================================================
+    // CONFIGURATION JSONBIN.IO
+    // ============================================================
+    const BIN_ID = '6a43dddeda38895dfe16a8e9';
+    const JSONBIN_KEY = '$2a$10$.Gn7O5WckBliiqbO.ZQ3YOfjZVV3KQHPlxvGfdBBo6RzlFa3HnGzW'; // remplacer par votre clé X-Master-Key
     const EVENT_ID = 'ceidef-2026';
-    const POLL_INTERVAL_MS = 5000;
+    const POLL_INTERVAL_MS = 8000; // intervalle de polling (8 sec, ajusté pour économiser les requêtes)
+    // ============================================================
 
-    const INITIAL_PARTICIPANTS = ['Karine Dubois-Comtois','Patricia Germain','Nicolas Berthelot','Eve-Line Bussières','Jacinthe Dion','Erica Goupil','Julie Lefebvre','Roxanne Lemieux','Julie Marcotte','Marie-Josée Martel','Tristan Milot','Diane St-Laurent','Annie Stipanicic','Marie-Pier Vaillancourt-Morel'];
+    const INITIAL_PARTICIPANTS = [
+      'Karine Dubois-Comtois', 'Patricia Germain', 'Nicolas Berthelot',
+      'Eve-Line Bussières', 'Jacinthe Dion', 'Erica Goupil',
+      'Julie Lefebvre', 'Roxanne Lemieux', 'Julie Marcotte',
+      'Marie-Josée Martel', 'Tristan Milot', 'Diane St-Laurent',
+      'Annie Stipanicic', 'Marie-Pier Vaillancourt-Morel'
+    ];
 
+    // Catégories de collaboration avec leurs champs additionnels
+    // type "student": nécessite nom étudiant + thématique (avec possibilité de plusieurs étudiants)
+    // type "theme": nécessite thématique seulement
+    // type "other": champ libre uniquement
     const COLLAB_TYPES = [
       { id: 'codir_rd',     icon: 'ti-school',          label: "Codirection d'activité de recherche dirigée", type: 'student' },
       { id: 'codir_thesis', icon: 'ti-certificate',     label: 'Codirection de mémoire / thèse',              type: 'student' },
@@ -399,64 +460,84 @@
 
     const YEARS = ['26-27', '27-28', '2028+'];
 
+    // ============================================================
+    // STATE
+    // ============================================================
     let online = false;
     let participants = [];
     let meetings = [];
     let currentPicker = null;
     let selected = { 1: null, 2: null };
     let editingMeetingId = null;
-    let gistEtag = null;
     let pollTimer = null;
     let saveInProgress = false;
 
-    async function fetchGist(useEtag = true) {
-      const headers = { 'Authorization': `token ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' };
-      if (useEtag && gistEtag) headers['If-None-Match'] = gistEtag;
-      const response = await fetch(`https://api.github.com/gists/${GIST_ID}`, { headers });
-      if (response.status === 304) return { changed: false };
+    // ============================================================
+    // JSONBIN.IO API
+    // ============================================================
+    async function fetchBin() {
+      const response = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}/latest`, {
+        headers: {
+          'X-Master-Key': JSONBIN_KEY,
+          'X-Bin-Meta': 'false'
+        }
+      });
+
       if (!response.ok) {
         const text = await response.text();
-        throw new Error(`Lecture Gist échouée (${response.status}): ${text}`);
+        throw new Error(`Lecture JSONBin échouée (${response.status}): ${text}`);
       }
-      gistEtag = response.headers.get('ETag');
-      const gist = await response.json();
-      const file = gist.files[GIST_FILENAME];
-      if (!file) throw new Error(`Fichier ${GIST_FILENAME} introuvable dans le Gist`);
-      let data;
-      try { data = JSON.parse(file.content); }
-      catch (e) { throw new Error(`JSON invalide dans le Gist: ${e.message}`); }
+
+      const data = await response.json();
+
+      // Normaliser la structure
       if (!data.participants) data.participants = [];
       if (!data.meetings) data.meetings = [];
-      return { changed: true, data };
+
+      return data;
     }
 
-    async function saveGist(data) {
-      const response = await fetch(`https://api.github.com/gists/${GIST_ID}`, {
-        method: 'PATCH',
-        headers: { 'Authorization': `token ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
-        body: JSON.stringify({ files: { [GIST_FILENAME]: { content: JSON.stringify(data, null, 2) } } })
+    async function saveBin(data) {
+      const response = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+        method: 'PUT',
+        headers: {
+          'X-Master-Key': JSONBIN_KEY,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
       });
+
       if (!response.ok) {
         const text = await response.text();
-        throw new Error(`Sauvegarde Gist échouée (${response.status}): ${text}`);
+        throw new Error(`Sauvegarde JSONBin échouée (${response.status}): ${text}`);
       }
-      gistEtag = response.headers.get('ETag');
+
       return await response.json();
     }
 
-    async function initGist() {
+    // ============================================================
+    // INIT JSONBIN
+    // ============================================================
+    async function initBin() {
+      if (JSONBIN_KEY === 'VOTRE_CLE_JSONBIN' || !JSONBIN_KEY) {
+        console.warn('JSONBin non configuré — mode local uniquement');
+        const sp = localStorage.getItem('ceidef_participants');
+        const sm = localStorage.getItem('ceidef_meetings');
+        if (sp) participants = JSON.parse(sp);
+        if (sm) meetings = JSON.parse(sm);
+        setStatus(false, 'clé non configurée');
+        return false;
+      }
       try {
-        const result = await fetchGist(false);
-        if (result.data) {
-          participants = result.data.participants.slice().sort((a, b) => a.localeCompare(b, 'fr'));
-          meetings = result.data.meetings;
-          localStorage.setItem('ceidef_participants', JSON.stringify(participants));
-          localStorage.setItem('ceidef_meetings', JSON.stringify(meetings));
-        }
+        const data = await fetchBin();
+        participants = data.participants.slice().sort((a, b) => a.localeCompare(b, 'fr'));
+        meetings = data.meetings;
+        localStorage.setItem('ceidef_participants', JSON.stringify(participants));
+        localStorage.setItem('ceidef_meetings', JSON.stringify(meetings));
         setStatus(true, 'connecté');
         return true;
       } catch (e) {
-        console.error('Erreur Gist:', e);
+        console.error('Erreur JSONBin:', e);
         const sp = localStorage.getItem('ceidef_participants');
         const sm = localStorage.getItem('ceidef_meetings');
         if (sp) participants = JSON.parse(sp);
@@ -472,19 +553,25 @@
       document.getElementById('status-text').textContent = text;
     }
 
-    async function loadFromGist() {
+    // ============================================================
+    // DATA OPERATIONS
+    // ============================================================
+    async function loadFromBin() {
+      // Recharge les données depuis JSONBin
+      if (JSONBIN_KEY === 'VOTRE_CLE_JSONBIN' || !JSONBIN_KEY) return false;
       try {
-        const result = await fetchGist(true);
-        if (result.changed && result.data) {
-          participants = result.data.participants.slice().sort((a, b) => a.localeCompare(b, 'fr'));
-          meetings = result.data.meetings;
-          localStorage.setItem('ceidef_participants', JSON.stringify(participants));
-          localStorage.setItem('ceidef_meetings', JSON.stringify(meetings));
-          if (!online) setStatus(true, 'connecté');
-          return true;
-        }
+        const data = await fetchBin();
+        // Détecter si les données ont vraiment changé
+        const newJson = JSON.stringify(data);
+        const oldJson = JSON.stringify({ participants, meetings });
+        const changed = newJson !== oldJson;
+
+        participants = data.participants.slice().sort((a, b) => a.localeCompare(b, 'fr'));
+        meetings = data.meetings;
+        localStorage.setItem('ceidef_participants', JSON.stringify(participants));
+        localStorage.setItem('ceidef_meetings', JSON.stringify(meetings));
         if (!online) setStatus(true, 'connecté');
-        return false;
+        return changed;
       } catch (e) {
         console.error('Erreur sync:', e);
         setStatus(false, 'hors ligne');
@@ -492,12 +579,21 @@
       }
     }
 
-    async function persistToGist() {
+    async function persistToBin() {
+      // Sauvegarde les données actuelles dans JSONBin
+      if (JSONBIN_KEY === 'VOTRE_CLE_JSONBIN' || !JSONBIN_KEY) {
+        toast('Sauvegardé localement uniquement', true);
+        return false;
+      }
       if (saveInProgress) await new Promise(r => setTimeout(r, 300));
       saveInProgress = true;
       try {
-        const data = { participants, meetings, last_update: new Date().toISOString() };
-        await saveGist(data);
+        const data = {
+          participants: participants,
+          meetings: meetings,
+          last_update: new Date().toISOString()
+        };
+        await saveBin(data);
         if (!online) setStatus(true, 'connecté');
         return true;
       } catch (e) {
@@ -511,21 +607,32 @@
     }
 
     async function loadParticipants() {
+      // Note: les participants sont chargés en même temps que les meetings via JSONBin
+      // Cette fonction garde la même signature pour compatibilité
       const stored = localStorage.getItem('ceidef_participants');
-      if (stored && participants.length === 0) participants = JSON.parse(stored);
+      if (stored && participants.length === 0) {
+        participants = JSON.parse(stored);
+      }
     }
 
     async function addParticipant() {
       const input = document.getElementById('new-participant');
       const name = input.value.trim();
       if (!name) return;
-      if (participants.includes(name)) { toast('Ce nom existe déjà', true); return; }
-      if (online) await loadFromGist();
-      if (participants.includes(name)) { toast('Ce nom existe déjà', true); return; }
+      if (participants.includes(name)) {
+        toast('Ce nom existe déjà', true);
+        return;
+      }
+      // Recharger depuis JSONBin pour avoir la dernière version
+      if (online) await loadFromBin();
+      if (participants.includes(name)) {
+        toast('Ce nom existe déjà', true);
+        return;
+      }
       participants.push(name);
       participants.sort((a, b) => a.localeCompare(b, 'fr'));
       localStorage.setItem('ceidef_participants', JSON.stringify(participants));
-      await persistToGist();
+      await persistToBin();
       input.value = '';
       renderParticipantsList();
       toast('Participant ajouté');
@@ -533,28 +640,37 @@
 
     async function removeParticipant(name) {
       if (!confirm(`Retirer ${name} de la liste ?`)) return;
-      if (online) await loadFromGist();
+      if (online) await loadFromBin();
       participants = participants.filter(p => p !== name);
       localStorage.setItem('ceidef_participants', JSON.stringify(participants));
-      await persistToGist();
+      await persistToBin();
       renderParticipantsList();
       toast('Participant retiré');
     }
 
     async function loadMeetings() {
+      // Note: les meetings sont chargés via JSONBin dans loadFromBin
       const stored = localStorage.getItem('ceidef_meetings');
-      if (stored && meetings.length === 0) meetings = JSON.parse(stored);
+      if (stored && meetings.length === 0) {
+        meetings = JSON.parse(stored);
+      }
     }
 
-    function normalizePair(a, b) { return [a, b].sort((x, y) => x.localeCompare(y, 'fr')); }
+    function normalizePair(a, b) {
+      return [a, b].sort((x, y) => x.localeCompare(y, 'fr'));
+    }
 
     async function saveMeeting(meeting) {
-      if (online) await loadFromGist();
+      // Recharger depuis JSONBin d'abord pour éviter d'écraser des changements
+      if (online) await loadFromBin();
+
       const idx = meetings.findIndex(m => m.id === meeting.id);
       if (idx >= 0) meetings[idx] = meeting;
       else meetings.unshift(meeting);
+
       localStorage.setItem('ceidef_meetings', JSON.stringify(meetings));
-      return await persistToGist();
+      const ok = await persistToBin();
+      return ok;
     }
 
     function findExistingMeeting(p1, p2) {
@@ -562,6 +678,9 @@
       return meetings.find(m => m.person_a === a && m.person_b === b);
     }
 
+    // ============================================================
+    // VIEW MANAGEMENT
+    // ============================================================
     function showView(name) {
       document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
       document.getElementById('view-' + name).classList.add('active');
@@ -581,7 +700,7 @@
       document.getElementById('picker2-label').textContent = 'Sélectionner...';
       document.getElementById('picker2-label').classList.add('empty');
       document.getElementById('notes-input').value = '';
-      renderCollabList();
+      renderCollabList(); // reset complet de la liste
       updateCounter();
       showView('select');
     }
@@ -590,6 +709,9 @@
     function showMeetingsList() { showView('meetings'); }
     window.showMeetingsList = showMeetingsList;
 
+    // ============================================================
+    // PICKER
+    // ============================================================
     function openPicker(num) {
       currentPicker = num;
       document.getElementById('picker-modal').classList.add('open');
@@ -610,10 +732,18 @@
       const other = currentPicker === 1 ? selected[2] : selected[1];
       const f = filter.toLowerCase();
       const filtered = participants.filter(n => n.toLowerCase().includes(f));
-      if (filtered.length === 0) { list.innerHTML = '<div class="empty-state">Aucun résultat</div>'; return; }
+
+      if (filtered.length === 0) {
+        list.innerHTML = '<div class="empty-state">Aucun résultat</div>';
+        return;
+      }
+
       list.innerHTML = filtered.map(name => {
         const taken = name === other;
-        return `<div class="picker-option ${taken ? 'taken' : ''}" ${taken ? '' : `onclick="pickName('${name.replace(/'/g, "\\'")}')"`}><i class="ti ti-user" style="color: var(--ink-faint);"></i><span>${name}</span></div>`;
+        return `<div class="picker-option ${taken ? 'taken' : ''}" ${taken ? '' : `onclick="pickName('${name.replace(/'/g, "\\'")}')"`}>
+          <i class="ti ti-user" style="color: var(--ink-faint);"></i>
+          <span>${name}</span>
+        </div>`;
       }).join('');
     }
 
@@ -629,36 +759,97 @@
     }
     window.pickName = pickName;
 
+    // ============================================================
+    // COLLABORATION CHECKLIST
+    // ============================================================
     function renderCollabList(prefilledData) {
+      // prefilledData = { collaborations: [{id, years, theme, students, other_text}] }
       const data = prefilledData || { collaborations: [] };
       const dataMap = {};
       (data.collaborations || []).forEach(c => { dataMap[c.id] = c; });
+
       const list = document.getElementById('collab-list');
       list.innerHTML = COLLAB_TYPES.map(c => {
         const prefill = dataMap[c.id];
         const isChecked = !!prefill;
         const yearCheckboxes = YEARS.map(y => {
           const checked = prefill && (prefill.years || []).includes(y);
-          return `<div class="date-cell"><span class="check"><input type="checkbox" data-id="${c.id}" data-year="${y}" ${isChecked ? '' : 'disabled'} ${checked ? 'checked' : ''} onchange="updateCounter()"><span class="check-box"></span></span></div>`;
+          return `<div class="date-cell">
+            <span class="check">
+              <input type="checkbox" data-id="${c.id}" data-year="${y}" ${isChecked ? '' : 'disabled'} ${checked ? 'checked' : ''} onchange="updateCounter()">
+              <span class="check-box"></span>
+            </span>
+          </div>`;
         }).join('');
+
         let detailsHTML = '';
         if (c.type === 'student') {
           const students = (prefill && prefill.students && prefill.students.length) ? prefill.students : [''];
           const theme = prefill ? (prefill.theme || '') : '';
-          detailsHTML = `<div class="collab-details" id="details-${c.id}"><p class="details-hint"><i class="ti ti-info-circle"></i> Précisez la thématique et le ou les étudiant·e·s en tête</p><div class="details-field"><label>Thématique</label><input type="text" data-field="theme" data-id="${c.id}" placeholder="Ex: Attachement parent-enfant" value="${escapeHtml(theme)}"></div><div class="details-field"><label>Étudiant·e·s</label><div class="students-list" id="students-${c.id}">${students.map((s, i) => renderStudentRow(c.id, s, i)).join('')}</div><button class="btn-add-student" onclick="addStudent('${c.id}')"><i class="ti ti-plus"></i> Ajouter un·e étudiant·e</button></div></div>`;
+          detailsHTML = `
+            <div class="collab-details" id="details-${c.id}">
+              <p class="details-hint"><i class="ti ti-info-circle"></i> Précisez la thématique et le ou les étudiant·e·s en tête</p>
+              <div class="details-field">
+                <label>Thématique</label>
+                <input type="text" data-field="theme" data-id="${c.id}" placeholder="Ex: Attachement parent-enfant" value="${escapeHtml(theme)}">
+              </div>
+              <div class="details-field">
+                <label>Étudiant·e·s</label>
+                <div class="students-list" id="students-${c.id}">
+                  ${students.map((s, i) => renderStudentRow(c.id, s, i)).join('')}
+                </div>
+                <button class="btn-add-student" onclick="addStudent('${c.id}')"><i class="ti ti-plus"></i> Ajouter un·e étudiant·e</button>
+              </div>
+            </div>
+          `;
         } else if (c.type === 'theme') {
           const theme = prefill ? (prefill.theme || '') : '';
-          detailsHTML = `<div class="collab-details" id="details-${c.id}"><p class="details-hint"><i class="ti ti-info-circle"></i> Précisez la thématique envisagée</p><div class="details-field"><label>Thématique</label><input type="text" data-field="theme" data-id="${c.id}" placeholder="Ex: Régulation émotionnelle en contexte de vulnérabilité" value="${escapeHtml(theme)}"></div></div>`;
+          detailsHTML = `
+            <div class="collab-details" id="details-${c.id}">
+              <p class="details-hint"><i class="ti ti-info-circle"></i> Précisez la thématique envisagée</p>
+              <div class="details-field">
+                <label>Thématique</label>
+                <input type="text" data-field="theme" data-id="${c.id}" placeholder="Ex: Régulation émotionnelle en contexte de vulnérabilité" value="${escapeHtml(theme)}">
+              </div>
+            </div>
+          `;
         } else if (c.type === 'other') {
           const otherText = prefill ? (prefill.other_text || '') : '';
-          detailsHTML = `<div class="collab-details" id="details-${c.id}"><p class="details-hint"><i class="ti ti-info-circle"></i> Précisez votre idée de collaboration</p><div class="details-field"><label>Description</label><input type="text" data-field="other_text" data-id="${c.id}" placeholder="Décrivez la collaboration envisagée" value="${escapeHtml(otherText)}"></div></div>`;
+          detailsHTML = `
+            <div class="collab-details" id="details-${c.id}">
+              <p class="details-hint"><i class="ti ti-info-circle"></i> Précisez votre idée de collaboration</p>
+              <div class="details-field">
+                <label>Description</label>
+                <input type="text" data-field="other_text" data-id="${c.id}" placeholder="Décrivez la collaboration envisagée" value="${escapeHtml(otherText)}">
+              </div>
+            </div>
+          `;
         }
-        return `<div class="collab-row ${isChecked ? 'checked' : ''}" id="row-${c.id}"><div class="collab-main"><label class="collab-label"><span class="check"><input type="checkbox" data-id="${c.id}" ${isChecked ? 'checked' : ''} onchange="onCollabToggle('${c.id}')"><span class="check-box"></span></span><i class="ti ${c.icon} collab-icon"></i><span class="collab-text">${c.label}</span></label>${yearCheckboxes}</div>${detailsHTML}</div>`;
+
+        return `
+          <div class="collab-row ${isChecked ? 'checked' : ''}" id="row-${c.id}">
+            <div class="collab-main">
+              <label class="collab-label">
+                <span class="check">
+                  <input type="checkbox" data-id="${c.id}" ${isChecked ? 'checked' : ''} onchange="onCollabToggle('${c.id}')">
+                  <span class="check-box"></span>
+                </span>
+                <i class="ti ${c.icon} collab-icon"></i>
+                <span class="collab-text">${c.label}</span>
+              </label>
+              ${yearCheckboxes}
+            </div>
+            ${detailsHTML}
+          </div>
+        `;
       }).join('');
     }
 
     function renderStudentRow(collabId, value, index) {
-      return `<div class="student-row" data-collab="${collabId}"><input type="text" data-field="student" data-id="${collabId}" placeholder="Nom de l'étudiant·e" value="${escapeHtml(value)}"><button class="student-remove" onclick="removeStudent(this)" aria-label="Retirer"><i class="ti ti-x"></i></button></div>`;
+      return `<div class="student-row" data-collab="${collabId}">
+        <input type="text" data-field="student" data-id="${collabId}" placeholder="Nom de l'étudiant·e" value="${escapeHtml(value)}">
+        <button class="student-remove" onclick="removeStudent(this)" aria-label="Retirer"><i class="ti ti-x"></i></button>
+      </div>`;
     }
 
     function escapeHtml(s) {
@@ -676,8 +867,11 @@
     function removeStudent(btn) {
       const row = btn.closest('.student-row');
       const list = row.parentElement;
-      if (list.children.length > 1) row.remove();
-      else row.querySelector('input').value = '';
+      if (list.children.length > 1) {
+        row.remove();
+      } else {
+        row.querySelector('input').value = '';
+      }
     }
     window.removeStudent = removeStudent;
 
@@ -685,6 +879,7 @@
       const row = document.getElementById('row-' + id);
       const mainCb = row.querySelector('.collab-label input');
       const dateCbs = row.querySelectorAll('.date-cell input');
+
       if (mainCb.checked) {
         row.classList.add('checked');
         dateCbs.forEach(cb => cb.disabled = false);
@@ -720,17 +915,23 @@
       btn.disabled = !(hasPair && hasCollab);
     }
 
+    // ============================================================
+    // COLLECT DATA FROM FORM
+    // ============================================================
     function collectCollaborations() {
       const collabs = [];
       COLLAB_TYPES.forEach(c => {
         const main = document.querySelector(`.collab-label input[data-id="${c.id}"]`);
         if (!main || !main.checked) return;
+
         const years = [];
         YEARS.forEach(y => {
           const ycb = document.querySelector(`.date-cell input[data-id="${c.id}"][data-year="${y}"]`);
           if (ycb && ycb.checked) years.push(y);
         });
+
         const item = { id: c.id, years };
+
         if (c.type === 'student') {
           const themeInput = document.querySelector(`input[data-field="theme"][data-id="${c.id}"]`);
           item.theme = themeInput ? themeInput.value.trim() : '';
@@ -743,36 +944,48 @@
           const otherInput = document.querySelector(`input[data-field="other_text"][data-id="${c.id}"]`);
           item.other_text = otherInput ? otherInput.value.trim() : '';
         }
+
         collabs.push(item);
       });
       return collabs;
     }
 
+    // ============================================================
+    // SUBMIT MEETING
+    // ============================================================
     async function submitMeeting() {
       const p1 = selected[1];
       const p2 = selected[2];
       if (!p1 || !p2) return;
+
       const [a, b] = normalizePair(p1, p2);
+
       if (!editingMeetingId) {
         const existing = findExistingMeeting(a, b);
         if (existing) {
           if (confirm(`Une rencontre existe déjà entre ${a} et ${b}. Voulez-vous la modifier ?`)) {
             editMeeting(existing.id);
             return;
-          } else { return; }
+          } else {
+            return;
+          }
         }
       }
+
       const collabs = collectCollaborations();
       const notes = document.getElementById('notes-input').value.trim();
+
       const meeting = {
         id: editingMeetingId || crypto.randomUUID(),
         event_id: EVENT_ID,
-        person_a: a, person_b: b,
+        person_a: a,
+        person_b: b,
         collaborations: collabs,
         notes: notes || null,
         updated_at: new Date().toISOString()
       };
       if (!editingMeetingId) meeting.created_at = meeting.updated_at;
+
       const ok = await saveMeeting(meeting);
       if (ok) showConfirmation(meeting);
     }
@@ -787,38 +1000,62 @@
         const years = c.years && c.years.length ? ` <span class="tag-year">${c.years.join(' · ')}</span>` : '';
         return `<span class="tag"><i class="ti ${type ? type.icon : 'ti-circle'}"></i>${label}${years}</span>`;
       }).join('');
-      summary.innerHTML = `<p class="tiny" style="margin: 0 0 8px;">${meeting.collaborations.length} collaboration(s) envisagée(s)</p><div class="tag-list">${tags}</div>${meeting.notes ? `<p class="muted" style="margin: 10px 0 0; font-style: italic;">"${meeting.notes}"</p>` : ''}`;
+      summary.innerHTML = `
+        <p class="tiny" style="margin: 0 0 8px;">${meeting.collaborations.length} collaboration(s) envisagée(s)</p>
+        <div class="tag-list">${tags}</div>
+        ${meeting.notes ? `<p class="muted" style="margin: 10px 0 0; font-style: italic;">"${meeting.notes}"</p>` : ''}
+      `;
       showView('confirm');
     }
 
+    // ============================================================
+    // EDIT MEETING
+    // ============================================================
     function editMeeting(id) {
       const m = meetings.find(x => x.id === id);
       if (!m) return;
       editingMeetingId = id;
+
       selected[1] = m.person_a;
       selected[2] = m.person_b;
       document.getElementById('picker1-label').textContent = m.person_a;
       document.getElementById('picker1-label').classList.remove('empty');
       document.getElementById('picker2-label').textContent = m.person_b;
       document.getElementById('picker2-label').classList.remove('empty');
+
       renderCollabList({ collaborations: m.collaborations || [] });
       document.getElementById('notes-input').value = m.notes || '';
+
       updateCounter();
       showView('select');
     }
     window.editMeeting = editMeeting;
 
+    // ============================================================
+    // MEETINGS LIST
+    // ============================================================
     function renderMeetingsList() {
       const list = document.getElementById('meetings-list');
       document.getElementById('meetings-total').textContent = meetings.length + (meetings.length === 1 ? ' rencontre' : ' rencontres');
-      if (meetings.length === 0) { list.innerHTML = '<div class="empty-state">Aucune rencontre enregistrée pour le moment</div>'; return; }
+
+      if (meetings.length === 0) {
+        list.innerHTML = '<div class="empty-state">Aucune rencontre enregistrée pour le moment</div>';
+        return;
+      }
+
       list.innerHTML = meetings.map(m => {
         const tags = (m.collaborations || []).slice(0, 4).map(c => {
           const t = COLLAB_TYPES.find(x => x.id === c.id);
           return `<span class="tag">${t ? t.label.split(' ').slice(0, 2).join(' ') : c.id}</span>`;
         }).join('');
         const more = (m.collaborations || []).length > 4 ? `<span class="tag">+${m.collaborations.length - 4}</span>` : '';
-        return `<div class="meeting-item" onclick="editMeeting('${m.id}')"><div class="meeting-header"><span class="meeting-names">${m.person_a} ↔ ${m.person_b}</span><span class="meeting-count">${(m.collaborations || []).length} collab.</span></div><div class="tag-list">${tags}${more}</div></div>`;
+        return `<div class="meeting-item" onclick="editMeeting('${m.id}')">
+          <div class="meeting-header">
+            <span class="meeting-names">${m.person_a} ↔ ${m.person_b}</span>
+            <span class="meeting-count">${(m.collaborations || []).length} collab.</span>
+          </div>
+          <div class="tag-list">${tags}${more}</div>
+        </div>`;
       }).join('');
     }
 
@@ -827,52 +1064,115 @@
       el.textContent = meetings.length > 0 ? `(${meetings.length})` : '';
     }
 
+    // ============================================================
+    // DASHBOARD
+    // ============================================================
     async function loadDashboard() {
       await loadMeetings();
       const totalMeetings = meetings.length;
       const totalCollabs = meetings.reduce((sum, m) => sum + (m.collaborations || []).length, 0);
       const researcherSet = new Set();
       meetings.forEach(m => { researcherSet.add(m.person_a); researcherSet.add(m.person_b); });
+
       const typeCount = {};
       COLLAB_TYPES.forEach(t => typeCount[t.id] = 0);
       meetings.forEach(m => (m.collaborations || []).forEach(c => { if (typeCount[c.id] != null) typeCount[c.id]++; }));
       const sortedTypes = COLLAB_TYPES.map(t => ({ ...t, count: typeCount[t.id] })).sort((a, b) => b.count - a.count);
       const topType = sortedTypes.find(t => t.count > 0);
+
       const yearCount = { '26-27': 0, '27-28': 0, '2028+': 0 };
-      meetings.forEach(m => (m.collaborations || []).forEach(c => (c.years || []).forEach(y => { if (yearCount[y] != null) yearCount[y]++; })));
+      meetings.forEach(m => (m.collaborations || []).forEach(c => (c.years || []).forEach(y => {
+        if (yearCount[y] != null) yearCount[y]++;
+      })));
+
       document.getElementById('stat-meetings').textContent = totalMeetings;
       document.getElementById('stat-collabs').textContent = totalCollabs;
       document.getElementById('stat-researchers').textContent = researcherSet.size;
       document.getElementById('stat-top').textContent = topType ? topType.label : '—';
+
       const maxType = Math.max(1, ...sortedTypes.map(t => t.count));
-      document.getElementById('distribution-chart').innerHTML = sortedTypes.filter(t => t.count > 0).map(t => `<div class="bar-row"><span class="bar-label">${t.label}</span><div class="bar-track"><div class="bar-fill" style="width: ${(t.count / maxType * 100).toFixed(0)}%"></div></div><span class="bar-val">${t.count}</span></div>`).join('') || '<div class="empty-state">Aucune donnée</div>';
+      document.getElementById('distribution-chart').innerHTML = sortedTypes.filter(t => t.count > 0).map(t => `
+        <div class="bar-row">
+          <span class="bar-label">${t.label}</span>
+          <div class="bar-track"><div class="bar-fill" style="width: ${(t.count / maxType * 100).toFixed(0)}%"></div></div>
+          <span class="bar-val">${t.count}</span>
+        </div>
+      `).join('') || '<div class="empty-state">Aucune donnée</div>';
+
       const maxYear = Math.max(1, yearCount['26-27'], yearCount['27-28'], yearCount['2028+']);
-      document.getElementById('year-chart').innerHTML = `<div class="bar-row"><span class="bar-label">2026-2027</span><div class="bar-track"><div class="bar-fill" style="width: ${(yearCount['26-27'] / maxYear * 100).toFixed(0)}%"></div></div><span class="bar-val">${yearCount['26-27']}</span></div><div class="bar-row"><span class="bar-label">2027-2028</span><div class="bar-track"><div class="bar-fill" style="width: ${(yearCount['27-28'] / maxYear * 100).toFixed(0)}%"></div></div><span class="bar-val">${yearCount['27-28']}</span></div><div class="bar-row"><span class="bar-label">2028 et +</span><div class="bar-track"><div class="bar-fill" style="width: ${(yearCount['2028+'] / maxYear * 100).toFixed(0)}%"></div></div><span class="bar-val">${yearCount['2028+']}</span></div>`;
+      document.getElementById('year-chart').innerHTML = `
+        <div class="bar-row">
+          <span class="bar-label">2026-2027</span>
+          <div class="bar-track"><div class="bar-fill" style="width: ${(yearCount['26-27'] / maxYear * 100).toFixed(0)}%"></div></div>
+          <span class="bar-val">${yearCount['26-27']}</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">2027-2028</span>
+          <div class="bar-track"><div class="bar-fill" style="width: ${(yearCount['27-28'] / maxYear * 100).toFixed(0)}%"></div></div>
+          <span class="bar-val">${yearCount['27-28']}</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">2028 et +</span>
+          <div class="bar-track"><div class="bar-fill" style="width: ${(yearCount['2028+'] / maxYear * 100).toFixed(0)}%"></div></div>
+          <span class="bar-val">${yearCount['2028+']}</span>
+        </div>
+      `;
     }
     window.loadDashboard = loadDashboard;
 
+    // ============================================================
+    // ADMIN
+    // ============================================================
     function renderParticipantsList() {
       const list = document.getElementById('participants-list');
       document.getElementById('admin-count').textContent = participants.length + (participants.length === 1 ? ' chercheur inscrit' : ' chercheurs inscrits');
-      list.innerHTML = participants.map(name => `<div class="participant-row"><span>${name}</span><button class="btn btn-sm btn-ghost btn-danger" onclick="removeParticipant('${name.replace(/'/g, "\\'")}')" aria-label="Retirer"><i class="ti ti-trash"></i></button></div>`).join('');
+
+      list.innerHTML = participants.map(name => `
+        <div class="participant-row">
+          <span>${name}</span>
+          <button class="btn btn-sm btn-ghost btn-danger" onclick="removeParticipant('${name.replace(/'/g, "\\'")}')" aria-label="Retirer">
+            <i class="ti ti-trash"></i>
+          </button>
+        </div>
+      `).join('');
     }
     window.addParticipant = addParticipant;
     window.removeParticipant = removeParticipant;
 
+    // ============================================================
+    // EXPORT CSV
+    // ============================================================
     function exportCSV() {
       const rows = [['Personne A', 'Personne B', 'Activité', '2026-2027', '2027-2028', '2028 et +', 'Thématique', 'Étudiant·e·s', 'Autre (précision)', 'Notes générales', 'Date création']];
       meetings.forEach(m => {
         const collabs = m.collaborations || [];
-        if (collabs.length === 0) { rows.push([m.person_a, m.person_b, '', '', '', '', '', '', '', m.notes || '', m.created_at || '']); return; }
+        if (collabs.length === 0) {
+          rows.push([m.person_a, m.person_b, '', '', '', '', '', '', '', m.notes || '', m.created_at || '']);
+          return;
+        }
         collabs.forEach(c => {
           const type = COLLAB_TYPES.find(t => t.id === c.id);
-          rows.push([m.person_a, m.person_b, type ? type.label : c.id, (c.years || []).includes('26-27') ? 'X' : '', (c.years || []).includes('27-28') ? 'X' : '', (c.years || []).includes('2028+') ? 'X' : '', c.theme || '', (c.students || []).join('; '), c.id === 'other' ? (c.other_text || '') : '', m.notes || '', m.created_at || '']);
+          rows.push([
+            m.person_a,
+            m.person_b,
+            type ? type.label : c.id,
+            (c.years || []).includes('26-27') ? 'X' : '',
+            (c.years || []).includes('27-28') ? 'X' : '',
+            (c.years || []).includes('2028+') ? 'X' : '',
+            c.theme || '',
+            (c.students || []).join('; '),
+            c.id === 'other' ? (c.other_text || '') : '',
+            m.notes || '',
+            m.created_at || ''
+          ]);
         });
       });
+
       const csv = rows.map(r => r.map(cell => {
         const s = String(cell || '');
         return /[",\n;]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
       }).join(';')).join('\n');
+
       const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
@@ -884,18 +1184,24 @@
     }
     window.exportCSV = exportCSV;
 
+    // ============================================================
+    // ADMIN: RESET
+    // ============================================================
     async function confirmReset() {
       const code = prompt('Pour confirmer la suppression de TOUTES les rencontres, tapez : SUPPRIMER');
       if (code !== 'SUPPRIMER') return;
-      if (online) await loadFromGist();
+      if (online) await loadFromBin();
       meetings = [];
       localStorage.setItem('ceidef_meetings', JSON.stringify(meetings));
-      await persistToGist();
+      await persistToBin();
       toast('Toutes les rencontres ont été supprimées');
       showView('home');
     }
     window.confirmReset = confirmReset;
 
+    // ============================================================
+    // TOAST
+    // ============================================================
     let toastTimer = null;
     function toast(msg, isError) {
       const el = document.getElementById('toast');
@@ -905,11 +1211,16 @@
       toastTimer = setTimeout(() => el.classList.remove('show'), 2500);
     }
 
+    // ============================================================
+    // POLLING (synchronisation avec JSONBin)
+    // Optimisation: pause quand l'onglet est caché (économise des requêtes)
+    // ============================================================
     function startPolling() {
       if (pollTimer) clearInterval(pollTimer);
       pollTimer = setInterval(async () => {
         if (saveInProgress) return;
-        const changed = await loadFromGist();
+        if (document.hidden) return; // pause si onglet caché
+        const changed = await loadFromBin();
         if (changed) {
           updateHomeCount();
           if (document.getElementById('view-dashboard').classList.contains('active')) loadDashboard();
@@ -917,12 +1228,28 @@
           if (document.getElementById('view-admin').classList.contains('active')) renderParticipantsList();
         }
       }, POLL_INTERVAL_MS);
+
+      // Resynchroniser quand l'onglet redevient visible
+      document.addEventListener('visibilitychange', async () => {
+        if (!document.hidden && online && !saveInProgress) {
+          const changed = await loadFromBin();
+          if (changed) {
+            updateHomeCount();
+            if (document.getElementById('view-dashboard').classList.contains('active')) loadDashboard();
+            if (document.getElementById('view-meetings').classList.contains('active')) renderMeetingsList();
+            if (document.getElementById('view-admin').classList.contains('active')) renderParticipantsList();
+          }
+        }
+      });
     }
 
+    // ============================================================
+    // INIT
+    // ============================================================
     async function init() {
       setStatus(false, 'connexion...');
       renderCollabList();
-      await initGist();
+      await initBin();
       await loadParticipants();
       await loadMeetings();
       updateHomeCount();
